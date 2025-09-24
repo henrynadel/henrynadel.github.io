@@ -3,13 +3,11 @@ project:
   output-dir: docs
 
 website:
-  title: "henrynadel.github.io"
+  title: "Henry Nadel"
   navbar:
     left:
     - href: index.qmd
       text: Home
-    - href: about.qmd
-      text: About
     - text: Data Viz
       menu:
         - href: tidytuesday-1.qmd
@@ -21,7 +19,7 @@ website:
         href: "[https://github.com/[your-username]/[your-repo]]"
         aria-label: GitHub
   page-footer:
-    center: "© [Your Name], [Year] · Built with Quarto"
+    center: "© Henry Nadel, 2025 · Built with Quarto"
   
 format:
   html:
