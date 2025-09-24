@@ -1,0 +1,9 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "henrynadel.github.io",
+    "section": "",
+    "text": "title: “henrynadel.github.io”\nimage: media/Asset0023.jpg # e.g., media/headshot.jpg about: template: jolla image-shape: round image-width: 16em links: - text: GitHub href: “https://github.com/henrynadel” - text: Email href: “mailto:nadelhenry@gmail.com” —\n\nWelcome\nHi! My name is Henry Nadel. I am currently in my final year at Pitzer College where I study Environmental Analysis on a public policy track with an additional minor in Data Science. I am particularly interested in using data to inform public policy along with using graphing and GIS software to convey data in an accessible manner. When I’m not in the classroom I can usually be found outside, running, climbing, or exploring one of California’s amazing parks.\n\nCurrently: Senior at Pitzer College\n\nFocus areas: Major: Environmental Analysis; Minor: Data Science\n\nBased in: Claremont, CA\n\nOriginally from: Newton, MA\n\nThis is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n\nWelcome\n[]\n\n1 + 1\n\n[1] 2"
+  }
+]
