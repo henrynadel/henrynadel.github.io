@@ -11,9 +11,9 @@ website:
     - text: Data Viz
       menu:
         - href: tidytuesday-1.qmd
-          text: "TidyTuesday 1"
+          text: "TidyTuesday - Himalayan Mountaineering"
         - href: tidytuesday-2.qmd
-          text: "TidyTuesday 2"
+          text: "TidyTuesday - Gas Pricing"
     right:
       - icon: github
         href: "[https://github.com/[your-username]/[your-repo]]"

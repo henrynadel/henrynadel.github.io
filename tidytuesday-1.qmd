@@ -1,6 +1,10 @@
 ---
-title: "tidytuesday - Himalayan Mountaineering"
+title: "TidyTuesday - Himalayan Mountaineering"
 ---
+
+The following calculations are made based off of a data set from the Himalayan Database which keeps information on peaks and mountaineering expeditions that take place in the Himalayan Region.
+
+The following graph attempts to compare the volume of expeditions per region listed in the data on all mountains exceeding 7,000 meters. This is done by joining the "peaks" and "expeditions" data sets, filtering for only peaks above 7,000m, and then counting the expeditions by region.
 
 ```{r}
 
@@ -9,9 +13,7 @@ exped_tidy <- tuesdata$exped_tidy
 peaks_tidy <- tuesdata$peaks_tidy
 ```
 
-The following calculations are made based off of a data set from the Himalayan Database which keeps information on peaks and mountaineering expeditions that take place in the Himalayan Region.
-
-The following graph attempts to compare the volume of expeditions per region listed in the data on all mountains exceeding 7,000 meters. This is done by joining the "peaks" and "expeditions" data sets, filtering for only peaks above 7,000m, and then counting the expeditions by region. \
+\
 
 ```{r}
 library(tidyverse)
@@ -34,8 +36,6 @@ exped_by_region <- exped_tidy |>
 exped_by_region
 
 ```
-
-Now the plot:
 
 ```{r}
 # ---- plot ----

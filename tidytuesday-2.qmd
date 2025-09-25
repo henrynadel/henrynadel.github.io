@@ -1,3 +1,45 @@
 ---
-title: "tidytuesday-2.qmd"
+title: "TidyTuesday - Gas Pricing"
 ---
+
+The following data was provided by TidyTuesday and is sourced from the U.S. Energy Information Administration (EIA), which publishes average retail gasoline and diesel prices each Monday. The original data (including additional datasets) can be found at [eia.gov/petroleum/gasdiesel](https://www.eia.gov/petroleum/gasdiesel/)
+
+The following code averages out weekly reports to create average annual gasoline prices. Then, the data is graphed to create a visual display of the change in American gas pricing over time.
+
+```{r}
+tuesdata <- tidytuesdayR::tt_load('2025-07-01')
+
+weekly_gas_prices <- tuesdata$weekly_gas_prices
+```
+
+```{r}
+# packages
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+
+# yearly average gasoline price
+gas_yearly <- weekly_gas_prices |>
+  filter(fuel == "gasoline", grade == "all", formulation == "all") |>
+  mutate(year = year(date)) |>
+  group_by(year) |>
+  summarise(avg_price = mean(price, na.rm = TRUE), .groups = "drop") |>
+  arrange(year)
+
+print(gas_yearly, n = Inf)
+```
+
+```{r}
+# Plot
+ggplot(gas_yearly, aes(x = year, y = avg_price, group = 1)) +
+  geom_line() +
+  geom_point() +
+  labs(
+    title = "Average U.S. Gasoline Price by Year",
+    x = "Year",
+    y = "Average price (USD/gal)"
+  ) +
+  scale_y_continuous(labels = scales::dollar_format()) +
+  scale_x_continuous(breaks = scales::pretty_breaks()) +
+  theme_minimal(base_size = 12)
+```
