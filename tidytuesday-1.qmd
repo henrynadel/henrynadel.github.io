@@ -1,3 +1,54 @@
 ---
-title: "tidytuesday-1.qmd"
+title: "tidytuesday - Himalayan Mountaineering"
 ---
+
+```{r}
+
+tuesdata <- tidytuesdayR::tt_load('2025-01-21')
+exped_tidy <- tuesdata$exped_tidy
+peaks_tidy <- tuesdata$peaks_tidy
+```
+
+The following calculations are made based off of a data set from the Himalayan Database which keeps information on peaks and mountaineering expeditions that take place in the Himalayan Region.
+
+The following graph attempts to compare the volume of expeditions per region listed in the data on all mountains exceeding 7,000 meters. This is done by joining the "peaks" and "expeditions" data sets, filtering for only peaks above 7,000m, and then counting the expeditions by region. \
+
+```{r}
+library(tidyverse)
+
+# joining
+exped_tidy <- exped_tidy |> mutate(PEAKID = as.character(PEAKID))
+peaks_tidy <- peaks_tidy |> mutate(PEAKID = as.character(PEAKID))
+
+# count expeditions for peaks >= 7000m 
+exped_by_region <- exped_tidy |>
+  distinct(EXPID, PEAKID) |>  
+  inner_join(
+    peaks_tidy |> select(PEAKID, HEIGHTM, REGION_FACTOR),
+    by = "PEAKID"
+  ) |>
+  filter(HEIGHTM >= 7000) |>
+  count(REGION_FACTOR, name = "n_expeditions") |>
+  arrange(desc(n_expeditions))
+
+exped_by_region
+
+```
+
+Now the plot:
+
+```{r}
+# ---- plot ----
+ggplot(exped_by_region,
+       aes(x = forcats::fct_reorder(REGION_FACTOR, n_expeditions),
+           y = n_expeditions)) +
+  geom_col(fill = "steelblue") +
+  coord_flip() +
+  labs(
+    title = "Number of Expeditions on ≥7000 m Peaks, by Region",
+    subtitle = "Himalayan Database (TidyTuesday 2025-01-21)",
+    x = "Region",
+    y = "Number of expeditions"
+  ) +
+  theme_minimal(base_size = 12)
+```
