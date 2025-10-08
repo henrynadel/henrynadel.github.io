@@ -13,9 +13,9 @@ about:
 
 Hi! My name is Henry Nadel. I am currently in my final year at Pitzer College where I study Environmental Analysis on a public policy track with an additional minor in Data Science. I am particularly interested in using data to inform public policy along with using graphing and GIS software to convey data in an accessible manner. When I'm not in the classroom I can usually be found outside running, climbing, or exploring one of California’s amazing parks.
 
-Currently: Senior at Pitzer College  
-Major: Environmental Analysis; Minor: Data Science  
-Based in: Claremont, CA  
+Currently: Senior at Pitzer College\
+Major: Environmental Analysis; Minor: Data Science\
+Based in: Claremont, CA\
 Originally from: Newton, MA
 
----
+------------------------------------------------------------------------
