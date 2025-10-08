@@ -6,18 +6,24 @@ The following calculations are made based off of a data set from the Himalayan D
 
 The following graph attempts to compare the volume of expeditions per region listed in the data on all mountains exceeding 7,000 meters. This is done by joining the "peaks" and "expeditions" data sets, filtering for only peaks above 7,000m, and then counting the expeditions by region.
 
-```{r, echo=FALSE}
+```{r setup, include=FALSE}
 
+knitr::opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE
+)
+
+library(tidyverse)
+```
+
+```{r}
 tuesdata <- tidytuesdayR::tt_load('2025-01-21')
 exped_tidy <- tuesdata$exped_tidy
 peaks_tidy <- tuesdata$peaks_tidy
 ```
 
-```{r, echo=FALSE}
-library(tidyverse)
-```
-
-```{r}
+```{r, echo=TRUE}
 # joining
 exped_tidy <- exped_tidy |> mutate(PEAKID = as.character(PEAKID))
 peaks_tidy <- peaks_tidy |> mutate(PEAKID = as.character(PEAKID))
@@ -36,7 +42,7 @@ exped_by_region <- exped_tidy |>
 exped_by_region
 ```
 
-```{r}
+```{r, echo=TRUE}
 # ---- plot ----
 ggplot(exped_by_region,
        aes(x = forcats::fct_reorder(REGION_FACTOR, n_expeditions),

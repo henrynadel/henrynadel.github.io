@@ -7,17 +7,23 @@ The following data was provided by TidyTuesday and is sourced from the U.S. Ener
 The following code averages out weekly reports to create average annual gasoline prices. Then, the data is graphed to create a visual display of the change in American gas pricing over time.
 
 ```{r}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE
+)
+
 tuesdata <- tidytuesdayR::tt_load('2025-07-01')
 
 weekly_gas_prices <- tuesdata$weekly_gas_prices
-```
 
-```{r}
 # packages
 library(tidyverse)
 library(dplyr)
 library(ggplot2)
+```
 
+```{r, echo=TRUE}
 # yearly average gasoline price
 gas_yearly <- weekly_gas_prices |>
   filter(fuel == "gasoline", grade == "all", formulation == "all") |>
@@ -29,7 +35,7 @@ gas_yearly <- weekly_gas_prices |>
 print(gas_yearly, n = Inf)
 ```
 
-```{r}
+```{r, echo=TRUE}
 # Plot
 ggplot(gas_yearly, aes(x = year, y = avg_price, group = 1)) +
   geom_line() +
