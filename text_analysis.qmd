@@ -51,7 +51,7 @@ ggplot(top_words, aes(x = reorder(word, n), y = n)) +
   geom_col() +
   coord_flip() +
   labs(
-    title = "Most Frequent Content Words in NYT Headlines since 1996",
+    title = "Most Frequent Words in NYT Headlines since 1996",
     x = "Word",
     y = "Count"
   ) +
