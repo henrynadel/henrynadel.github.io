@@ -1,0 +1,144 @@
+---
+title: "Analysing New York Times Headlines"
+format: html
+---
+
+
+On this page I analyze a data set with headlines from all New York Times articles dating back to 1996. My analysis focuses on (1) frequent content words, (2) locations referenced, and (3) how often numbers and years appear in headlines. 
+
+This data was soruced from the `NYTimes` dataset in the `RTextTools` package.
+
+
+## Frequest Word Usage
+
+```{r setup, include=FALSE}
+# Packages
+library(tidyverse)
+library(stringr)
+library(tidytext)
+library(RTextTools)
+library(knitr)
+
+data(NYTimes)
+nyt <- NYTimes |>
+  as_tibble() |>
+  filter(!is.na(Title)) |>
+  distinct(Title, .keep_all = TRUE)
+```
+
+```{r}
+titles_tokens <- nyt |>
+  transmute(
+    Title_clean = Title |>
+      str_to_lower() |>
+      str_replace_all("[^a-z\\s]", " ") |>
+      str_replace_all("\\s+", " ") |>
+      str_trim()
+  ) |>
+  unnest_tokens(word, Title_clean, token = "words") |>
+  anti_join(stop_words, by = "word") |>
+  filter(str_detect(word, "^[a-z]+$"), nchar(word) >= 3)
+
+top_words <- titles_tokens |>
+  count(word, sort = TRUE) |>
+  slice_head(n = 15)
+```
+
+```{r}
+# Plot — Top content words
+ggplot(top_words, aes(x = reorder(word, n), y = n)) +
+  geom_col() +
+  coord_flip() +
+  labs(
+    title = "Most Frequent Content Words in NYT Headlines since 1996",
+    x = "Word",
+    y = "Count"
+  ) +
+  theme_minimal(base_size = 12)
+```
+This bar chart shows the most common words in found in the headline column of the data set. It's an interesting way to find many of the most common topics covered by the New York Times over the past three decades. 
+Notably, the top three words stand distinctively above the rest in usage: Bush, Iraq, and War. this makes sense as all three of these words point to the same general event of President Bush's decision to invade Iraq following 9/11. This makes sense as it was a large global event that toom place near the beginning of this data's period of observation. These findings make an interesting claim about how extensively the war in Iraq penetrated the American news cycle.
+
+
+## Frequently Mentioned Places
+
+in this section I find the locations that are most frequestly refrenced by searcing for words that follow the preposition "in... " 
+
+```{r}
+locs <- nyt |>
+  transmute(
+    Title,
+    loc = str_extract_all(
+      Title,
+      "(?<=\\bin\\s)([A-Z][A-Za-z\\-]+(?:\\s[A-Z][A-Za-z\\-]+)*)"
+    )
+  ) |>
+  unnest(loc) |>
+  mutate(loc = loc |>
+           str_replace_all("\\s+", " ") |>
+           str_trim()) |>
+  count(loc, sort = TRUE) |>
+  slice_head(n = 10)
+```
+
+```{r}
+# Plot 2 — Top phrases following "in "
+ggplot(locs, aes(x = reorder(loc, n), y = n)) +
+  geom_col() +
+  coord_flip() +
+  labs(
+    title = "Top 10 Phrases Following 'in' - NYT Headlines",
+    x = "Location phrase",
+    y = "Count"
+  ) +
+  theme_minimal(base_size = 12)
+```
+
+Following the previous section, it is unsurprising that far and away the most frequently mentioned location is Iraq, further emphasizing the impact of the war in Iraq on the american news cycle. Another interesting finding from this is a lack of reference to Africa or South America in the top 10 spots. Furthermore, New York and Florida stick out as the only U.S. states listed.
+It is worth noting that many of these names have much higher tallies when counting total uses. The specific criteria of words following "in" is meant to isolate the places where stories are taking place, opposed to total mentions. 
+
+
+## Headlines Containing Numbers & Years
+
+```{r}
+title_nums <- nyt |>
+  transmute(
+    Title,
+    has_number = str_detect(Title, "\\b\\d{1,3}(?:,\\d{3})*(?:\\.\\d+)?\\b"),
+    years_list = str_extract_all(Title, "\\b(19|20)\\d{2}\\b")
+  )
+
+prop_table <- tibble(
+  metric = c("Headlines containing any number"),
+  value  = c(mean(title_nums$has_number))
+) |>
+  mutate(share = scales::percent(value)) |>
+  select(metric, share)
+```
+
+```{r}
+# Table — Share of headlines with numbers / percentages
+kable(
+  prop_table,
+  col.names = c("Metric", "Share of headlines"),
+  caption = "% of NYT headlines with numeric content"
+)
+```
+
+```{r}
+# Table — Most mentioned years
+years_top <- title_nums |>
+  select(years_list) |>
+  unnest(years_list, keep_empty = FALSE) |>
+  count(year = years_list, sort = TRUE) |>
+  slice_head(n = 10)
+
+kable(
+  years_top,
+  col.names = c("Year", "Count"),
+  caption = "Top 10 years referenced in headlines"
+)
+```
+
+It's interesting how much of this list is years before the period of observation from the data set beginning in 1996. This indicates a trend of using years in headlines more frequently when referring to events farther back in the past. It's also worth noting the "Count" column, whish shows that they year 2000 is mentioned by far the most frequently, and all but six years were mentioned only once. 
+
