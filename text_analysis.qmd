@@ -1,12 +1,13 @@
 ---
 title: "Analysing New York Times Headlines"
-format: html
 ---
 
 
 On this page I analyze a data set with headlines from all New York Times articles dating back to 1996. My analysis focuses on (1) frequent content words, (2) locations referenced, and (3) how often numbers and years appear in headlines. 
 
 This data was soruced from the `NYTimes` dataset in the `RTextTools` package.
+
+
 
 
 ## Frequest Word Usage
@@ -139,6 +140,7 @@ kable(
   caption = "Top 10 years referenced in headlines"
 )
 ```
+
 
 It's interesting how much of this list is years before the period of observation from the data set beginning in 1996. This indicates a trend of using years in headlines more frequently when referring to events farther back in the past. It's also worth noting the "Count" column, whish shows that they year 2000 is mentioned by far the most frequently, and all but six years were mentioned only once. 
 

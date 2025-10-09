@@ -14,6 +14,8 @@ website:
           text: "TidyTuesday - Himalayan Mountaineering"
         - href: tidytuesday-2.qmd
           text: "TidyTuesday - Gas Pricing"
+        - href: text_analysis.qmd
+          text: "Analysing NYTimes Headlines"
     right:
       - icon: github
         href: "[https://github.com/[your-username]/[your-repo]]"

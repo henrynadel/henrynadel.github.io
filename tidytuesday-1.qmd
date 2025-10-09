@@ -5,7 +5,7 @@ title: "TidyTuesday - Himalayan Mountaineering"
 The following data set was gathered and provided by TidyTuesday, linked here:\
 <https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-01-21/readme.md>
 
-The data was sourced from the Himalayan Database which keeps information on peaks and mountaineering expeditions that take place in the Himalayan Region. The full himilayan database catalog can be found here:
+The data was sourced from the Himalayan Database which keeps information on peaks and mountaineering expeditions that take place in the Himalayan Region. The full himalayan database catalog can be found here:
 
 <https://www.himalayandatabase.com/index.html>
 
