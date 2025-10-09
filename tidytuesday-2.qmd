@@ -2,7 +2,10 @@
 title: "TidyTuesday - Gas Pricing"
 ---
 
-The following data was provided by TidyTuesday and is sourced from the U.S. Energy Information Administration (EIA), which publishes average retail gasoline and diesel prices each Monday. The original data (including additional datasets) can be found at [eia.gov/petroleum/gasdiesel](https://www.eia.gov/petroleum/gasdiesel/)
+The following data was provided by TidyTuesday, linked here:\
+<https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-07-01/readme.md>
+
+The data was sourced from the U.S. Energy Information Administration (EIA), which publishes average retail gasoline and diesel prices each Monday. The original data (including additional datasets) can be found at [eia.gov/petroleum/gasdiesel](https://www.eia.gov/petroleum/gasdiesel/)
 
 The following code averages out weekly reports to create average annual gasoline prices. Then, the data is graphed to create a visual display of the change in American gas pricing over time.
 

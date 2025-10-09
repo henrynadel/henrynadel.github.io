@@ -2,7 +2,12 @@
 title: "TidyTuesday - Himalayan Mountaineering"
 ---
 
-The following calculations are made based off of a data set from the Himalayan Database which keeps information on peaks and mountaineering expeditions that take place in the Himalayan Region.
+The following data set was gathered and provided by TidyTuesday, linked here:\
+<https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-01-21/readme.md>
+
+The data was sourced from the Himalayan Database which keeps information on peaks and mountaineering expeditions that take place in the Himalayan Region. The full himilayan database catalog can be found here:
+
+<https://www.himalayandatabase.com/index.html>
 
 The following graph attempts to compare the volume of expeditions per region listed in the data on all mountains exceeding 7,000 meters. This is done by joining the "peaks" and "expeditions" data sets, filtering for only peaks above 7,000m, and then counting the expeditions by region.
 

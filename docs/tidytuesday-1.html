@@ -352,7 +352,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>The following calculations are made based off of a data set from the Himalayan Database which keeps information on peaks and mountaineering expeditions that take place in the Himalayan Region.</p>
+<p>The following data set was gathered and provided by TidyTuesday, linked here:<br>
+<a href="https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-01-21/readme.md" class="uri">https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-01-21/readme.md</a></p>
+<p>The data was sourced from the Himalayan Database which keeps information on peaks and mountaineering expeditions that take place in the Himalayan Region. The full himilayan database catalog can be found here:</p>
+<p><a href="https://www.himalayandatabase.com/index.html" class="uri">https://www.himalayandatabase.com/index.html</a></p>
 <p>The following graph attempts to compare the volume of expeditions per region listed in the data on all mountains exceeding 7,000 meters. This is done by joining the “peaks” and “expeditions” data sets, filtering for only peaks above 7,000m, and then counting the expeditions by region.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># joining</span></span>
