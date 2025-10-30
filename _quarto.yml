@@ -16,7 +16,7 @@ website:
           text: "TidyTuesday - Gas Pricing"
         - href: text_analysis.qmd
           text: "Analysing NYTimes Headlines"
-        - href: permutation_test.qmd
+        - href: permutation_test.html
           text: "Permutation Testing"
     right:
     - icon: github
