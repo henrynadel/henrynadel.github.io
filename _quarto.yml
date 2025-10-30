@@ -16,10 +16,12 @@ website:
           text: "TidyTuesday - Gas Pricing"
         - href: text_analysis.qmd
           text: "Analysing NYTimes Headlines"
+        - href: permutation_test.qmd
+          text: "Permutation Testing"
     right:
-      - icon: github
-        href: "[https://github.com/[your-username]/[your-repo]]"
-        aria-label: GitHub
+    - icon: github
+      href: "[https://github.com/[your-username]/[your-repo]]"
+      aria-label: GitHub
   page-footer:
     center: "© Henry Nadel, 2025 · Built with Quarto"
   

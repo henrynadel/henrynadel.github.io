@@ -51,63 +51,63 @@
   {
     "objectID": "Permutation_test.html",
     "href": "Permutation_test.html",
-    "title": "Permutation_test",
+    "title": "Permutation Testing",
     "section": "",
     "text": "In this project, I conduct a small simulation study using a permutation test to explore whether there is an association between warehouse construction and unemployment rates in Southern California between 1990 and 2023.\nSpecifically, I ask:\n    Is there a relationship between economic growth through warehouse construction and local unemployment levels in Los Angeles, San Bernardino, and Riverside Counties from 1990 to 2023?\nThis question is interesting because warehouse development is often seen as an engine of local job creation in the Inland Empire, but data can reveal whether such development truly corresponds with lower unemployment."
   },
   {
     "objectID": "Permutation_test.html#introduction",
     "href": "Permutation_test.html#introduction",
-    "title": "Permutation_test",
+    "title": "Permutation Testing",
     "section": "",
     "text": "In this project, I conduct a small simulation study using a permutation test to explore whether there is an association between warehouse construction and unemployment rates in Southern California between 1990 and 2023.\nSpecifically, I ask:\n    Is there a relationship between economic growth through warehouse construction and local unemployment levels in Los Angeles, San Bernardino, and Riverside Counties from 1990 to 2023?\nThis question is interesting because warehouse development is often seen as an engine of local job creation in the Inland Empire, but data can reveal whether such development truly corresponds with lower unemployment."
   },
   {
     "objectID": "Permutation_test.html#data-used",
     "href": "Permutation_test.html#data-used",
-    "title": "Permutation_test",
+    "title": "Permutation Testing",
     "section": "Data Used:",
     "text": "Data Used:\nWarehouseCITY dataset1 — total new warehouse square footage built per year (1990–2023).\nLocal Area Unemployment Statistics (LAUS) from the U.S. Bureau of Labor Statistics2 — annual unemployment rate for the same region.\nBoth of the above data sets were sourced and trimmed down to only the fields relevant to this question during a an old project I had been working on.\n\n\nCode\nnew_sqft_by_unemployment &lt;- tribble(\n  ~Year, ~Building_sqft, ~Unemployment_rate,\n  1990, 33117000, 5.5,\n  1991, 18049000, 7.7,\n  1992, 13342000, 9.4,\n  1993, 5496000, 9.6,\n  1994, 9896000, 8.6,\n  1995, 12322000, 7.6,\n  1996, 13340000, 7.4,\n  1997, 18313000, 6.2,\n  1998, 40683000, 5.8,\n  1999, 37391000, 5.1,\n  2000, 43402000, 4.9,\n  2001, 43587000, 5.3,\n  2002, 29485000, 6.4,\n  2003, 32292000, 6.5,\n  2004, 36145000, 5.9,\n  2005, 37454000, 5.0,\n  2006, 36564000, 4.5,\n  2007, 36654000, 5.0,\n  2008, 22418000, 7.3,\n  2009, 12283000, 11.6,\n  2010, 4915000, 12.4,\n  2011, 8212000, 11.9,\n  2012, 13895000, 10.6,\n  2013, 18823000, 9.2,\n  2014, 23496000, 7.7,\n  2015, 29009000, 6.3,\n  2016, 28887000, 5.2,\n  2017, 37838000, 4.7,\n  2018, 45736000, 4.2,\n  2019, 30398000, 4.1,\n  2020, 37704000, 11.1,\n  2021, 43896000, 8.0,\n  2022, 44088000, 4.5,\n  2023, 30926000, 4.7\n)"
   },
   {
     "objectID": "Permutation_test.html#visualizing-the-original-relationship",
     "href": "Permutation_test.html#visualizing-the-original-relationship",
-    "title": "Permutation_test",
+    "title": "Permutation Testing",
     "section": "Visualizing the Original Relationship",
-    "text": "Visualizing the Original Relationship\nThe following scatterplot displays the annual relationship between new warehouse square footage and unemployment rate. Each point represents one year between 1990 and 2023, with a linear trend line to visualize direction.\n\n\nCode\nnew_sqft_by_unemployment |&gt;\n  ggplot(aes(x = Building_sqft, y = Unemployment_rate)) +\n  geom_point() +\n  geom_smooth(method = \"lm\", se = FALSE) +\n  labs(title = \"Building Square Footage vs. Unemployment Rate\",\n       x = \"New building sq.ft. by year\",\n       y = \"Unemployment rate (%)\") +\n  scale_x_continuous(labels = comma_format(accuracy = 1)) +\n  theme_minimal()\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\nIn this graph we see years with higher construction volumes tend to have lower unemployment, suggesting a potential negative correlation. However, to test whether this observed relationship could have arisen by random chance, we perform a permutation test."
+    "text": "Visualizing the Original Relationship\nThe following scatterplot displays the annual relationship between new warehouse square footage and unemployment rate. Each point represents one year between 1990 and 2023, with a linear trend line to visualize direction.\n\n\nCode\nnew_sqft_by_unemployment |&gt;\n  ggplot(aes(x = Building_sqft, y = Unemployment_rate)) +\n  geom_point() +\n  geom_smooth(method = \"lm\", se = FALSE) +\n  labs(title = \"Building Square Footage vs. Unemployment Rate\",\n       x = \"New building sq.ft. by year\",\n       y = \"Unemployment rate (%)\") +\n  scale_x_continuous(labels = comma_format(accuracy = 1)) +\n  theme_minimal()\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\nIn this graph we see years with higher construction volumes tend to have lower unemployment, suggesting a potential negative correlation (although not an extremely strong one). However, to test whether this observed relationship could have arisen by random chance, we perform a permutation test."
   },
   {
     "objectID": "Permutation_test.html#setting-up-the-permutation-test",
     "href": "Permutation_test.html#setting-up-the-permutation-test",
-    "title": "Permutation_test",
+    "title": "Permutation Testing",
     "section": "Setting Up the Permutation Test",
-    "text": "Setting Up the Permutation Test\nOur hypotheses are:\n  Null hypothesis (H₀): There is no association between warehouse construction and unemployment rate.\n  Alternative hypothesis (H₁): Higher levels of warehouse construction correspond with lower unemployment.\nThe test statistic will be the correlation coefficient between Building_sqft and Unemployment_rate."
+    "text": "Setting Up the Permutation Test\nMy hypotheses are:\n  Null hypothesis (H₀): There is no association between warehouse construction and unemployment rate.\n  Alternative hypothesis (H₁): Higher levels of warehouse construction correspond with lower unemployment.\nThe test statistic will be the correlation coefficient between Building_sqft and Unemployment_rate."
   },
   {
     "objectID": "Permutation_test.html#simulation-design",
     "href": "Permutation_test.html#simulation-design",
-    "title": "Permutation_test",
+    "title": "Permutation Testing",
     "section": "Simulation Design",
     "text": "Simulation Design\nI’ll first write a small function that computes a correlation after shuffling one variable. Then I’ll use a map() variant to repeat this process thousands of times, generating the null distribution.\n\n\nCode\n# Function to compute one permuted correlation\n# perm_cor for permutation correlation\nperm_cor &lt;- function(df) {\ncor(df$Building_sqft, sample(df$Unemployment_rate))\n}\n\n# Run simulations using map_dbl()\n\nset.seed(47)\nn_sims &lt;- 10000\nr_perm &lt;- map_dbl(1:n_sims, ~ perm_cor(new_sqft_by_unemployment))\n\n# Observed correlation in original data\nr_obs &lt;- cor(new_sqft_by_unemployment$Building_sqft,\nnew_sqft_by_unemployment$Unemployment_rate)\n\n# Two-sided p-value\np_val &lt;- mean(abs(r_perm) &gt;= abs(r_obs))\n\ntibble(observed_r = r_obs, p_value_two_sided = p_val)\n\n\n# A tibble: 1 × 2\n  observed_r p_value_two_sided\n       &lt;dbl&gt;             &lt;dbl&gt;\n1     -0.736                 0"
   },
   {
     "objectID": "Permutation_test.html#visualizing-the-permutation-distribution",
     "href": "Permutation_test.html#visualizing-the-permutation-distribution",
-    "title": "Permutation_test",
+    "title": "Permutation Testing",
     "section": "Visualizing the Permutation Distribution",
     "text": "Visualizing the Permutation Distribution\nThe histogram below shows the distribution of correlation coefficients obtained under the null hypothesis (no relationship). The vertical red line marks the observed correlation from the real data.\n\n\nCode\ntibble(r = r_perm) |&gt;\nggplot(aes(x = r)) +\ngeom_histogram(bins = 40, fill = \"skyblue\", color = \"white\") +\ngeom_vline(xintercept = r_obs, color = \"red\", linewidth = 1.2) +\nlabs(\ntitle = \"Permutation Test for Correlation\",\nsubtitle = paste0(\"Observed r = \", round(r_obs, 3),\n\" | p(two-sided) = \", signif(p_val, 3)),\nx = \"Permuted correlation (null distribution)\",\ny = \"Count\"\n) +\ntheme_minimal()\n\n\n\n\n\n\n\n\n\nThe histogram is centered around 0, as expected under the null hypothesis. The observed correlation of approximately −0.74 lies far in the left tail of the distribution. Out of 10,000 permutations, none produced a correlation as extreme, implying a very small p-value and evidence against the null hypothesis."
   },
   {
     "objectID": "Permutation_test.html#discussion",
     "href": "Permutation_test.html#discussion",
-    "title": "Permutation_test",
+    "title": "Permutation Testing",
     "section": "Discussion",
-    "text": "Discussion\nThis simulation suggests a negative relationship between warehouse construction and unemployment in the Los Angeles–San Bernardino–Riverside region from 1990 to 2023, meaning that in years when more warehouse square footage was built, unemployment rates tended to be lower. However, it’s important to note that while the null hypothesis was disproved, that doesn’t mean the initial data shown at the top has a strong linear correlation (which is why this data got scrapped from the project i was originally using it for)\nFurthermore, this result does not imply direct causation. Both variables may be influenced by larger economic cycles (e.g., recessions in 2008 and 2020). Still, this permutation study demonstrates how randomization methods can assess relationships between data while avoiding distributional assumptions."
+    "text": "Discussion\nThis simulation suggests a negative relationship between warehouse construction and unemployment in the Los Angeles–San Bernardino–Riverside region from 1990 to 2023, meaning that in years when more warehouse square footage was built, unemployment rates tended to be lower. However, it’s important to note that while the null hypothesis was disproved, that doesn’t mean the initial data shown at the top has a strong linear correlation (which is why this data got scrapped from the project i was originally using it for)\nFurthermore, this result does not imply direct causation. Both variables may be influenced by larger economic cycles (e.g., recessions in 2008 and 2020). Still, this permutation study demonstrated a clear relationship in the data that through permutation testing we now know we can attribute to more than chance."
   },
   {
     "objectID": "Permutation_test.html#footnotes",
     "href": "Permutation_test.html#footnotes",
-    "title": "Permutation_test",
+    "title": "Permutation Testing",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nPhillips, S. A., & McCarthy, M. C. (2024). Warehouse CITY: An open data product for evaluating warehouse land-use in Southern California. Environment and Planning B, 51(8), 1965–1973. https://doi.org/10.1177/23998083241262553↩︎\nU.S. Bureau of Labor Statistics. (2024). Local Area Unemployment Statistics (LAUS). https://www.bls.gov/lau/↩︎"
   }

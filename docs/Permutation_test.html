@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Permutation_test – Henry Nadel</title>
+<title>Permutation Testing – Henry Nadel</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -311,6 +311,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="./text_analysis.html">
  <span class="dropdown-text">Analysing NYTimes Headlines</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./permutation_test.qmd">
+ <span class="dropdown-text">Permutation Testing</span></a>
+  </li>  
     </ul>
   </li>
 </ul>
@@ -339,7 +343,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Permutation_test</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Permutation Testing</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
 
@@ -438,11 +442,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>In this graph we see years with higher construction volumes tend to have lower unemployment, suggesting a potential negative correlation. However, to test whether this observed relationship could have arisen by random chance, we perform a permutation test.</p>
+<p>In this graph we see years with higher construction volumes tend to have lower unemployment, suggesting a potential negative correlation (although not an extremely strong one). However, to test whether this observed relationship could have arisen by random chance, we perform a permutation test.</p>
 </section>
 <section id="setting-up-the-permutation-test" class="level2">
 <h2 class="anchored" data-anchor-id="setting-up-the-permutation-test">Setting Up the Permutation Test</h2>
-<p>Our hypotheses are:</p>
+<p>My hypotheses are:</p>
 <div class="line-block">&nbsp;&nbsp;Null hypothesis (H₀): There is no association between warehouse construction and unemployment rate.</div>
 <div class="line-block">&nbsp;&nbsp;Alternative hypothesis (H₁): Higher levels of warehouse construction correspond with lower unemployment.</div>
 <p>The test statistic will be the correlation coefficient between Building_sqft and Unemployment_rate.</p>
@@ -514,7 +518,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="discussion" class="level2">
 <h2 class="anchored" data-anchor-id="discussion">Discussion</h2>
 <p>This simulation suggests a negative relationship between warehouse construction and unemployment in the Los Angeles–San Bernardino–Riverside region from 1990 to 2023, meaning that in years when more warehouse square footage was built, unemployment rates tended to be lower. However, it’s important to note that while the null hypothesis was disproved, that doesn’t mean the initial data shown at the top has a strong linear correlation (which is why this data got scrapped from the project i was originally using it for)</p>
-<p>Furthermore, this result does not imply direct causation. Both variables may be influenced by larger economic cycles (e.g., recessions in 2008 and 2020). Still, this permutation study demonstrates how randomization methods can assess relationships between data while avoiding distributional assumptions.</p>
+<p>Furthermore, this result does not imply direct causation. Both variables may be influenced by larger economic cycles (e.g., recessions in 2008 and 2020). Still, this permutation study demonstrated a clear relationship in the data that through permutation testing we now know we can attribute to more than chance.</p>
 
 
 <!-- -->
@@ -993,7 +997,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb7" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Permutation_test"</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Permutation Testing"</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: show</span></span>
@@ -1086,12 +1090,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-96"><a href="#cb7-96" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">comma_format</span>(<span class="at">accuracy =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
 <span id="cb7-97"><a href="#cb7-97" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
 <span id="cb7-98"><a href="#cb7-98" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb7-99"><a href="#cb7-99" aria-hidden="true" tabindex="-1"></a>In this graph we see years with higher construction volumes tend to have lower unemployment, suggesting a potential negative correlation.</span>
+<span id="cb7-99"><a href="#cb7-99" aria-hidden="true" tabindex="-1"></a>In this graph we see years with higher construction volumes tend to have lower unemployment, suggesting a potential negative correlation (although not an extremely strong one).</span>
 <span id="cb7-100"><a href="#cb7-100" aria-hidden="true" tabindex="-1"></a>However, to test whether this observed relationship could have arisen by random chance, we perform a permutation test.</span>
 <span id="cb7-101"><a href="#cb7-101" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-102"><a href="#cb7-102" aria-hidden="true" tabindex="-1"></a><span class="fu">## Setting Up the Permutation Test</span></span>
 <span id="cb7-103"><a href="#cb7-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-104"><a href="#cb7-104" aria-hidden="true" tabindex="-1"></a>Our hypotheses are:</span>
+<span id="cb7-104"><a href="#cb7-104" aria-hidden="true" tabindex="-1"></a>My hypotheses are:</span>
 <span id="cb7-105"><a href="#cb7-105" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-106"><a href="#cb7-106" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>   Null hypothesis (H₀): There is no association between warehouse construction and unemployment rate.</span>
 <span id="cb7-107"><a href="#cb7-107" aria-hidden="true" tabindex="-1"></a></span>
@@ -1156,7 +1160,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-170"><a href="#cb7-170" aria-hidden="true" tabindex="-1"></a>This simulation suggests a negative relationship between warehouse construction and unemployment in the Los Angeles–San Bernardino–Riverside region from 1990 to 2023, meaning that in years when more warehouse square footage was built, unemployment rates tended to be lower. However, it's important to note that while the null hypothesis was disproved, that doesn't mean the initial data shown at the top has a strong linear correlation (which is why this data  got scrapped from the project i was originally using it for)</span>
 <span id="cb7-171"><a href="#cb7-171" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-172"><a href="#cb7-172" aria-hidden="true" tabindex="-1"></a>Furthermore, this result does not imply direct causation. Both variables may be influenced by larger economic cycles (e.g., recessions in 2008 and 2020).</span>
-<span id="cb7-173"><a href="#cb7-173" aria-hidden="true" tabindex="-1"></a>Still, this permutation study demonstrates how randomization methods can assess relationships between data while avoiding distributional assumptions.</span>
+<span id="cb7-173"><a href="#cb7-173" aria-hidden="true" tabindex="-1"></a>Still, this permutation study demonstrated a clear relationship in the data that through permutation testing we now know we can attribute to more than chance.</span>
 <span id="cb7-174"><a href="#cb7-174" aria-hidden="true" tabindex="-1"></a></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
