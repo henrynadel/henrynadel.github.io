@@ -18,6 +18,10 @@ website:
           text: "Analysing NYTimes Headlines"
         - href: Permutation_test.qmd
           text: "Permutation Testing"
+    - text: Blog Posts
+      menu:
+        - href: ethics_blog.qmd
+          text: "Predictive Analytics at Target"
     right:
     - icon: github
       href: https://github.com/[your-username]/[your-repo]

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Analysing New York Times Headlines – Henry Nadel</title>
+<title>Project 4: Predictive Analytics at Target – Henry Nadel</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,41 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -354,7 +319,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Analysing New York Times Headlines</h1>
+<h1 class="title">Project 4: Predictive Analytics at Target</h1>
 </div>
 
 
@@ -371,202 +336,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>On this page I analyze a data set with headlines from all New York Times articles dating back to 1996. My analysis focuses on (1) frequent content words, (2) locations referenced, and (3) how often numbers and years appear in headlines.</p>
-<p>This data was soruced from the <code>NYTimes</code> dataset in the <code>RTextTools</code> package.</p>
-<section id="frequest-word-usage" class="level2">
-<h2 class="anchored" data-anchor-id="frequest-word-usage">Frequest Word Usage</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>titles_tokens <span class="ot">&lt;-</span> nyt <span class="sc">|&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Title_clean =</span> Title <span class="sc">|&gt;</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_to_lower</span>() <span class="sc">|&gt;</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_replace_all</span>(<span class="st">"[^a-z</span><span class="sc">\\</span><span class="st">s]"</span>, <span class="st">" "</span>) <span class="sc">|&gt;</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_replace_all</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">s+"</span>, <span class="st">" "</span>) <span class="sc">|&gt;</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_trim</span>()</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, Title_clean, <span class="at">token =</span> <span class="st">"words"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(stop_words, <span class="at">by =</span> <span class="st">"word"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(word, <span class="st">"^[a-z]+$"</span>), <span class="fu">nchar</span>(word) <span class="sc">&gt;=</span> <span class="dv">3</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>top_words <span class="ot">&lt;-</span> titles_tokens <span class="sc">|&gt;</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot — Top content words</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(top_words, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(word, n), <span class="at">y =</span> n)) <span class="sc">+</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Most Frequent</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="st">    VWords in NYT Headlines since 1996"</span>,</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Word"</span>,</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Count"</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="text_analysis_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>This bar chart shows the most common words in found in the headline column of the data set. It’s an interesting way to find many of the most common topics covered by the New York Times over the past three decades. Notably, the top three words stand distinctively above the rest in usage: Bush, Iraq, and War. this makes sense as all three of these words point to the same general event of President Bush’s decision to invade Iraq following 9/11. This makes sense as it was a large global event that toom place near the beginning of this data’s period of observation. These findings make an interesting claim about how extensively the war in Iraq penetrated the American news cycle.</p>
+<section id="data-ethics-predictive-analytics-and-consumer-profiling-at-target" class="level1">
+<h1>Data Ethics — Predictive Analytics and Consumer Profiling at Target</h1>
+<section id="scenario-overview" class="level2">
+<h2 class="anchored" data-anchor-id="scenario-overview">1. Scenario Overview:</h2>
+<p>In the early 2010s, Target became widely known for using predictive analytics in ways that reshaped what retailers could infer from ordinary shopping patterns. As Charles Duhigg reported in <em>The New York Times Magazine</em> (2012), Target’s data science team analyzed years of transaction logs to pick up on subtle shifts—unscented lotion, certain supplements, cotton balls—that often signaled early pregnancy. By assembling these signals, they built what they called a “pregnancy prediction” score and deployed targeted coupons timed to match a customer’s likely trimester.</p>
+<p>What stood out in this case was not the model itself, but the sharp imbalance it created between the company and its customers. Most people shopping at Target had no sense that routine purchases were being interpreted as clues about a private stage of life. The anecdote of the father who learned of his daughter’s pregnancy through Target’s coupons captures this tension clearly: predictive systems can move faster and more invasively than social norms around privacy or disclosure. What the company described as personalization felt, for many, like surveillance.</p>
+<p>Writers in <em>Harvard Business Review</em> (HBR) John, Kim, and Barasz (2020), later suggested that cases like Target’s show why companies should “design for transparency.” Their argument rests on the idea that predictive analytics are inevitable, and that trust can be repaired if consumers are more involved. This view makes sense at a high level, but it also sidesteps a deeper issue: transparency may not resolve the discomfort people feel when companies use data to anticipate intimate parts of their lives. Sometimes the problem is not that consumers don’t understand the system—it’s that the system is doing something they would never knowingly agree to.</p>
+<hr>
 </section>
-<section id="frequently-mentioned-places" class="level2">
-<h2 class="anchored" data-anchor-id="frequently-mentioned-places">Frequently Mentioned Places</h2>
-<p>in this section I find the locations that are most frequestly refrenced by searcing for words that follow the preposition “in…”</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>locs <span class="ot">&lt;-</span> nyt <span class="sc">|&gt;</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    Title,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">loc =</span> <span class="fu">str_extract_all</span>(</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>      Title,</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>      <span class="st">"(?&lt;=</span><span class="sc">\\</span><span class="st">bin</span><span class="sc">\\</span><span class="st">s)([A-Z][A-Za-z</span><span class="sc">\\</span><span class="st">-]+(?:</span><span class="sc">\\</span><span class="st">s[A-Z][A-Za-z</span><span class="sc">\\</span><span class="st">-]+)*)"</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(loc) <span class="sc">|&gt;</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">loc =</span> loc <span class="sc">|&gt;</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>           <span class="fu">str_replace_all</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">s+"</span>, <span class="st">" "</span>) <span class="sc">|&gt;</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>           <span class="fu">str_trim</span>()) <span class="sc">|&gt;</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(loc, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot 2 — Top phrases following "in "</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(locs, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(loc, n), <span class="at">y =</span> n)) <span class="sc">+</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Top 10 Phrases Following 'in' - NYT Headlines"</span>,</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Location phrase"</span>,</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Count"</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="text_analysis_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Following the previous section, it is unsurprising that far and away the most frequently mentioned location is Iraq, further emphasizing the impact of the war in Iraq on the american news cycle. Another interesting finding from this is a lack of reference to Africa or South America in the top 10 spots. Furthermore, New York and Florida stick out as the only U.S. states listed. It is worth noting that many of these names have much higher tallies when counting total uses. The specific criteria of words following “in” is meant to isolate the places where stories are taking place, opposed to total mentions.</p>
+<section id="ethical-analysis-four-issue-areas" class="level2">
+<h2 class="anchored" data-anchor-id="ethical-analysis-four-issue-areas">2. Ethical Analysis: Four Issue Areas</h2>
+<section id="a.-permission-structure-consent" class="level3">
+<h3 class="anchored" data-anchor-id="a.-permission-structure-consent">A. Permission Structure &amp; Consent</h3>
+<p>As Duhigg describes, Target built its pregnancy model by stitching together an assortment of everyday data sources: guest IDs, credit card transactions, coupon use, website behavior, and store surveys. At no point were customers explicitly asked whether this information could be used to infer pregnancy. Consent was hidden inside broad loyalty-program disclaimers that most people never read.</p>
+<p>The HBR authors argue that this is a failure of meaningful consent. They emphasize that real consent requires clarity, purpose, and some sense of value returned to the consumer. In this case, however, the benefits flowed almost entirely to Target. Customers were not just unaware, they were structurally excluded from knowing how their data were being interpreted.</p>
 </section>
-<section id="headlines-containing-numbers-years" class="level2">
-<h2 class="anchored" data-anchor-id="headlines-containing-numbers-years">Headlines Containing Numbers &amp; Years</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>title_nums <span class="ot">&lt;-</span> nyt <span class="sc">|&gt;</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    Title,</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">has_number =</span> <span class="fu">str_detect</span>(Title, <span class="st">"</span><span class="sc">\\</span><span class="st">b</span><span class="sc">\\</span><span class="st">d{1,3}(?:,</span><span class="sc">\\</span><span class="st">d{3})*(?:</span><span class="sc">\\</span><span class="st">.</span><span class="sc">\\</span><span class="st">d+)?</span><span class="sc">\\</span><span class="st">b"</span>),</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">years_list =</span> <span class="fu">str_extract_all</span>(Title, <span class="st">"</span><span class="sc">\\</span><span class="st">b(19|20)</span><span class="sc">\\</span><span class="st">d{2}</span><span class="sc">\\</span><span class="st">b"</span>)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>prop_table <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">metric =</span> <span class="fu">c</span>(<span class="st">"Headlines containing any number"</span>),</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">value  =</span> <span class="fu">c</span>(<span class="fu">mean</span>(title_nums<span class="sc">$</span>has_number))</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">share =</span> scales<span class="sc">::</span><span class="fu">percent</span>(value)) <span class="sc">|&gt;</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(metric, share)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Table — Share of headlines with numbers / percentages</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  prop_table,</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Metric"</span>, <span class="st">"Share of headlines"</span>),</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">"% of NYT headlines with numeric content"</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<caption>% of NYT headlines with numeric content</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Metric</th>
-<th style="text-align: left;">Share of headlines</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Headlines containing any number</td>
-<td style="text-align: left;">11%</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Table — Most mentioned years</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>years_top <span class="ot">&lt;-</span> title_nums <span class="sc">|&gt;</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(years_list) <span class="sc">|&gt;</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(years_list, <span class="at">keep_empty =</span> <span class="cn">FALSE</span>) <span class="sc">|&gt;</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(<span class="at">year =</span> years_list, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">10</span>)</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  years_top,</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Year"</span>, <span class="st">"Count"</span>),</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">"Top 10 years referenced in headlines"</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<caption>Top 10 years referenced in headlines</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Year</th>
-<th style="text-align: right;">Count</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">2000</td>
-<td style="text-align: right;">37</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">1998</td>
-<td style="text-align: right;">6</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">2004</td>
-<td style="text-align: right;">3</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">1964</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">1996</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">2003</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">1937</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">1940</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">1970</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">1972</td>
-<td style="text-align: right;">1</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p>It’s interesting how much of this list is years before the period of observation from the data set beginning in 1996. This indicates a trend of using years in headlines more frequently when referring to events farther back in the past. It’s also worth noting the “Count” column, which shows that they year 2000 is mentioned by far the most frequently, and all but six years were mentioned only once.</p>
-<p>Data Citation: R Core Team. (2020). NYTimes: a sample dataset containing labeled headlines from The New York Times. RTextTools. https://rdrr.io/cran/RTextTools/man/NYTimes.html</p>
+<section id="b.-data-collection-process-identifiability" class="level3">
+<h3 class="anchored" data-anchor-id="b.-data-collection-process-identifiability">B. Data Collection Process &amp; Identifiability</h3>
+<p>Each customer’s behavior was tracked through a persistent “Guest ID,” creating a long-term map of their purchasing life. Even if names were removed internally, the targeted coupons mailed to specific households made the inference effectively public. A prediction—correct or not—arrived in the mailbox as a tangible object, visible to anyone in the home.</p>
+<p>The HBR perspective emphasizes transparency, suggesting that if people better understood how their data were used, they would feel more comfortable. I disagree. The discomfort here is not rooted in confusion; it is rooted in the fact that predictive profiling transforms private behaviors into labels that can spill into the physical world. Transparency does nothing to change the basic dynamic in which a company can infer something personal and then disclose it, intentionally or not, through marketing. The issue is inherent to individualized profiling itself, not merely the lack of explanation around it.</p>
+</section>
+<section id="c.-representativeness-bias-fairness" class="level3">
+<h3 class="anchored" data-anchor-id="c.-representativeness-bias-fairness">C. Representativeness, Bias &amp; Fairness</h3>
+<p>Target’s model relied heavily on data from customers who had signed up for Targets baby registry, a group that reflects only a portion of expecting parents. Their behaviors became the template for the algorithm, meaning the system encoded norms from a small sample about what pregnancy “looks like” in Target’s data. People who pay in cash, shop infrequently, or whose consumption patterns diverge from registry users could be missed or misclassified.</p>
+<p>HBR refers to this as a lack of “data empathy,” a concept encouraging designers to consider how systems affect people who don’t match the dataset’s dominant patterns. While this is a valuable lens, it still accepts the premise that large-scale consumer prediction is a neutral or inevitable practice that simply needs fine-tuning. But Target’s model did more than misrepresent some consumers—it helped define whose lives were legible to the system and whose were not. Weather it was inadvertent or not, this bias is a reflection of who Target considered worth identifying and targeting in the first place.</p>
+</section>
+<section id="d.-unintended-uses-influence-of-power" class="level3">
+<h3 class="anchored" data-anchor-id="d.-unintended-uses-influence-of-power">D. Unintended Uses &amp; Influence of Power</h3>
+<p>Target’s system was not a passive observer. It used pregnancy predictions to shape long-term shopping habits, described internally as “habit formation.” This strategy turns Pregnancy, which can be understood as a period of heightened vulnerability for a consumer, into a commercial entry point. This is an example of predictive analytics doing more than just anticipating behavior, instead, through the process of habit building it sought to mold it.</p>
+<p>HBR imagines a different future in which predictive analytics empower consumers and distribute agency more evenly. But this vision relies on a kind of collaboration that is difficult to imagine within existing retail incentives. Target’s approach shows how easily predictive power becomes a tool for subtle influence. When prediction is tied to increased profit, corporations loose all incentive to collaborate or empathize with the concerns of consumers.</p>
+<hr>
+</section>
+</section>
+<section id="why-this-matters-who-benefits-who-is-neglected-or-harmed" class="level2">
+<h2 class="anchored" data-anchor-id="why-this-matters-who-benefits-who-is-neglected-or-harmed">3. Why This Matters: Who Benefits, Who Is Neglected or Harmed</h2>
+<p>The Target case demonstrates how predictive analytics, when deployed without meaningful consent or accountability, can reinforce existing power imbalances. The company gained a competitive advantage through early detection of pregnancy and stronger customer retention. For consumers, however, the costs were harder to see but deeply felt: a loss of control over how their personal information and the inferences built from it circulated through their lives.</p>
+<p>HBR encourages us to view this as part of a broader question about who gets to shape the landscape of predictive technology and what the implications of there choices are. That framing is useful, but only if we recognize that transparency alone cannot resolve the underlying asymmetry. A technically sophisticated model can still fail sociall or ethicall standards, because people do not experience systems as abstractions, their experiences are formed by the ways those systems touch their everyday lives.</p>
+<p>Looking across other data-driven systems, the pattern is familiar. Technologies built to optimize efficiency often overlook the realities of those they are applied to. It’s an important reminder of the ways that code can touch peoples lives, and that efficiency (especially when geared towards profit) is far from the only metric to needed to create ethical processing systems. In the case of Target, we see how when predictive systems operate quietly, without clear boundaries, they risk crossing lines that individuals never had the chance to draw themselves.</p>
+<hr>
+</section>
+<section id="citations" class="level2">
+<h2 class="anchored" data-anchor-id="citations">Citations</h2>
+<p>Duhigg, C. (2012). <em>How Companies Learn Your Secrets</em>. <em>The New York Times Magazine</em>, February 19.<br>
+https://www.nytimes.com/2012/02/19/magazine/shopping-habits.html</p>
+<p>John, L. K., Kim, T., &amp; Barasz, K. (2020). <em>Customer Data: Designing for Transparency and Trust</em>. <em>Harvard Business Review</em>, May–June.<br>
+https://hbr.org/2020/05/customer-data-designing-for-transparency-and-trust</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
