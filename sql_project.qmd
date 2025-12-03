@@ -1,9 +1,6 @@
 ---
 title: "sql_project"
 format: html
-  html:
-    code-fold: show
-    code-tools: true
 ---
 
 ```{r}
