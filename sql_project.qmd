@@ -3,7 +3,7 @@ title: "sql_project"
 format: html
 ---
 
-```{r}
+```{r, message=FALSE}
 library(DBI)
 library(RMariaDB)
 library(dplyr)
