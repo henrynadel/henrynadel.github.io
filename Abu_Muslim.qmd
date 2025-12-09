@@ -1,15 +1,10 @@
 ---
-title: "Abu_Muslim"
-format: html
----
-
----
 title: "Abu Muslim: The Forgotten Figurehead of the Abbasid Revolution"
 author: "Henry Nadel"
 date: "5/10/2024"
 course: "Islam and the End of Time"
 instructor: "Prof. Jamel Velji"
-format: pdf
+format: html
 ---
 
 The Abbasid Caliphate is heralded by many as the golden age of Islam for its cultural advancements and longevity lasting over three centuries that were defined by stability. However, their rise to power was far less idealistic and has been shrouded in apocalyptic mysteries by the Abbasids to create a cleaner narrative. Due to the swift nature of how the Abbasids took over the caliphate, along with the narrative control they claimed after their victory, it's quite difficult to look past the historical descriptions written from within the Abbasid empire. However, piecing together the details from alternate sources, the story of a man named Abu Muslim begins to emerge. Abu Muslim played a critical role in the strategic mobilization of messianic aspirations that allowed the Abbasids to swiftly overtake the Ummayads, yet his story is seldom included. This paper aims to delineate Abu Muslim's pivotal role, and in doing so, address how the interjection of Abu Muslim's legacy alters our understanding of the eschatological dimensions inherent in the Abbasid Revolution. Through a nuanced analysis of historical narratives, ideology, and belief, this paper will show that contrary to the popular Abbasid narrative demonstrating the use of messianic expectation to gain power, in reality, the revolution was contingent on Abu Muslim's role as a messianic figurehead.
@@ -46,3 +41,23 @@ The story of Abu Muslim, while often overshadowed by the mainstream narrative of
 
 ## Bibliography
 
+- Borrut, Antoine, and Paul M. Cobb. Umayyad Legacies : Medieval Memories from Syria to
+Spain. Brill, 2010,
+http://booksandjournals.brillonline.com/content/10.1163/ej.9789004184749.i-560.7.
+- Lassner, Jacob, and Michael Bonner. Islam in the Middle Ages : The Origins and Shaping of
+Classical Islamic Civilization. Praeger, 2010.
+- Ibn al-Athīr, al-Kāmil fī l-taʾrīkh, vol. 4, Beirut 1986. Page 64-67.
+- Anon., Akhbār al-dawla al-ʿAbbāsiyya wa-fīhi akhbār al-ʿAbbās wa-waladih, ed.ʿAbd
+al-ʿAzīz al-Dūrī andʿAbd al-Jabbār al-Muṭṭalibī, Beirut 1971. Page 82.
+- Britannica, The Editors of Encyclopaedia. "Hāshimīyah". Encyclopedia Britannica, 11 Jul.
+2007, https://www.britannica.com/topic/Hashimiyah. Accessed 8 May 2024.
+- Agha, Seleh said. “Abū Muslim Al-Khurāsānī.” Referenceworks, Encyclopaedia of Islam
+Three, 2007,
+referenceworks.brill.com/display/entries/EI3O/COM-24741.xml?rskey=zJycCU&result=1.
+- Agha, Saleh Said. "The Revolution which toppled the Umayyads: Neither Arab nor Ἁbbāsid."
+The Revolution which toppled the Umayyads. Brill, 2003.
+- Daniel C. Dennett, Marwān ibn Muḥammad. The passing of the Umayyad caliphate, Ph.D.
+diss., Harvard University 1939. Page 124-125.
+- al-Dīnawarī, al-Akhbār al-ṭiwāl, ed. Vladimir Guirgass, Leiden 1888
+- Daniel, Elton L. The Political and Social History of Khurasan under Abbasid Rule, 747-820.
+Bibliotheca Islamica, 1979, http://hdl.handle.net/2027/heb.00875.

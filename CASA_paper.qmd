@@ -1,6 +1,10 @@
 ---
-title: "CASA_paper"
+title: "Quantifying Growth: Warehousing"
 format: html
 ---
 
-
+```{=html}
+<embed src="CASA Research Paper - Final draft copy.pdf"
+       type="application/pdf"
+       width="100%"
+       height="900px" />
