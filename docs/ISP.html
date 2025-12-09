@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Independent Study Project – Pitzer in Nepal – Henry Nadel</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-9d882aefbe6880e209bb4e231fcedeb2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-a4c88ee5fff31457304d135ae3771217.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-9d882aefbe6880e209bb4e231fcedeb2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Henry Nadel</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-viz" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Data Viz</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-data-viz">    
+        <li>
+    <a class="dropdown-item" href="./tidytuesday-1.html">
+ <span class="dropdown-text">TidyTuesday - Himalayan Mountaineering</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./tidytuesday-2.html">
+ <span class="dropdown-text">TidyTuesday - Gas Pricing</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./text_analysis.html">
+ <span class="dropdown-text">Analyzing NYTimes Headlines</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Permutation_test.html">
+ <span class="dropdown-text">Permutation Testing</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./sql_project.html">
+ <span class="dropdown-text">Analyzing Policing with SQL</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-blog-posts" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Blog Posts</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-blog-posts">    
+        <li>
+    <a class="dropdown-item" href="./ethics_blog.html">
+ <span class="dropdown-text">Predictive Analytics at Target</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./surveillance.html">
+ <span class="dropdown-text">I.C.E. Surveillance Technologies</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Abu_Muslim.pdf">
+ <span class="dropdown-text">Abu Muslim</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-gis-mapping" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">GIS Mapping</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-gis-mapping">    
+        <li>
+    <a class="dropdown-item" href="./Warehousing_Corona.html">
+ <span class="dropdown-text">Warehouses in Corona CA</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Research</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
+        <li>
+    <a class="dropdown-item" href="./ISP.html">
+ <span class="dropdown-text">Nepal’s Regional Schooling</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./QM_paper.qmd">
+ <span class="dropdown-text">Warehouse Growth in the IE</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-photography" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Photography</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-photography">    
+        <li>
+    <a class="dropdown-item" href="./nepal_flics">
+ <span class="dropdown-text">From Nepal</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/[your-username]/[your-repo]"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content column-page" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Independent Study Project – Pitzer in Nepal</h1>
+</div>
+
+
+
+<div class="quarto-title-meta column-page">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="lower-mustangs-regional-schooling" class="level3">
+<h3 class="anchored" data-anchor-id="lower-mustangs-regional-schooling">Lower Mustang’s Regional Schooling</h3>
+</section>
+<section id="the-shifting-landscape-of-rural-education-in-nepal" class="level2">
+<h2 class="anchored" data-anchor-id="the-shifting-landscape-of-rural-education-in-nepal">The shifting landscape of rural education in Nepal</h2>
+</section>
+<section id="abstract" class="level2">
+<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
+<p>Education in Nepal has come a long way since 2000. From 1999 to 2016, net enrollment in education through grade five surged from 66.3% to 97%.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> However, following the end of basic education in 8th grade, secondary school enrolment drops to 46.4%, with just 16.8% in grades 11–12.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Over the past 25 years, the Lower Mustang region of Nepal has undergone a transformational shift in the structure of its public education as part of addressing these challenges. This shift began with the private development of Lubras Chasey Kengtse Hostel in 2001, which allowed students from across the region to consolidate at Lupras adjacent public school. Over the following 20 years, three more publicly funded youth hostels were built across the region. This had two major impacts on local public education: First, the consolidation of students into four major schools has greatly improved the quality of free public education available in the area. Second, the mass preference of students to attend these schools, along with the external factor of outmigration from villages across Nepal, has slowly caused the region’s village-level schools to shut down. This systemic shift in the type of rural education offered has vastly increased local students’ opportunity for educational success while remaining close to home, yet in doing so, has introduced new dynamics to the fabric of village life across the region.</p>
+</section>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Growing the public education system in Nepal has been a central focus of nationwide development over the past thirty-plus years. Large investments have been made by Nepal’s government and foreign investors alike to improve nationwide access to basic and secondary education. With new schooling facilities and improved education resources spreading across the country, positive results have emerged. For example, National literacy rates have jumped from 48.6% to 71.2% between 2001 and 2021.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> However, despite this clear growth, there are still many people voicing frustration towards the current state of the Nepali education system. Nepals 2015 Constitution states in article 31 (2) that, “Every citizen shall have the right to get compulsory and free education up to the basic level and free education up to the secondary level from the State.”<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> This section of Nepal’s decade old constitution envisions compulsory education through grade eight and free education through grade twelve. However, many rural schools across the country end at grade five, and few reach grade ten. Furthermore, according to Nepal’s last census, of children in the basic education age group (age 5-12), 3% are currently not in the school system.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> I think the dichotomy present here is a fitting way to begin this paper since it is consistent with the story I found in my research on public education in Nepal’s Lower Mustang region. Both are characterised by sweeping successes, while remaining far from perfect. The basic framework of Nepal’s education system is divided into primary and secondary education. Primary education in Nepal covers formal schooling from grades one to eight. Before Nepal’s primary education begins is the compulsory Early Childhood Education or Pre-Primary Education (ECED/PPE) program for students to attend before entering class one. As I was conducting my research, it was regularly referred to as “Nursery” by locals. ECED imploys a Montessori-style learning approach where students split the day between play and learning basic reading, writing, and math skills to prepare them for first grade. The combination of the EDED level and primary education in Nepal is referred to as ‘basic education’ and is often offered together within the same school, especially in rural areas.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> Following the completion of primary school in Nepal is secondary school, which covers grades 9 to 12. Secondary education is split into two parts, beginning with Lower Secondary Education, which covers grades 9 and 10. After grade 10, students must complete Secondary Education Examinations, which are administered by the National Examinations Board (NEB). The exam covers all school subjects, including English, Nepali, mathematics, science, social studies, and health. Upon passing the Secondary Education Examinations, students are given a diploma that grants them access to Upper Secondary Education or Vocational Secondary Education. Upper Secondary Education, often referred to as “plus two,” is the final phase of Nepal’s secondary education. It covers grades 11 and 12, is usually conducted in a separate school from Lower Secondary Education, and includes students focusing on a more specific academic focus. Upon the completion of grade 12, students take another exam administered by the NEB titled the ‘Migration Certificate - School Leaving Certificate Examination.’ The function of this diploma is to grant students access to apply to institutions of higher education, either in Nepal or abroad, and marks the end of their secondary education in Nepal.<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> Since the early 90s, Nepal has made remarkable strides in expanding and improving its education system, achieving significant successes in enrollment and gender equity. Net enrollment in education through grade five surged from 66.3% in 1999 to an impressive 97% by 2016, while gender parity saw a transformative shift—rising from a low gender parity index of 0.17 in 1973 to 1.08 in 2016, indicating that girls now enroll at slightly higher rates than boys.<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a> These achievements are the result of a combination of strategic government policies, such as the 1971 National Education System Plan and the 2016 School Sector Development Plan, both of which focus on improving access and quality nationwide. International organizations, including UNICEF and the World Bank, played a crucial role by supporting initiatives to lower dropout rates and target marginalized communities.<a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a> Legal guarantees of free secondary education further encouraged enrollment, although indirect costs such as a lack of local secondary schools remain a barrier for many families. Additionally, the growing recognition of education’s link to economic growth, particularly the positive impact of secondary and higher education on GDP per capita, has reinforced Nepal’s pursuit of educational expansion.<a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a> Despite ongoing challenges such as poverty, difficult geography, and the setbacks caused by the 2015 earthquake, Nepal’s educational progress stands as a testament to sustained policy commitment, global partnership, and targeted social investments. However, despite these advancements, systemic challenges continue to hinder Nepal’s broader goals of educational equity and quality. One major issue is the significant drop in enrollment beyond primary education as net enrollment plunges to 46.4% in secondary school and just 16.8% in grades 11–12.<a href="#fn11" class="footnote-ref" id="fnref11" role="doc-noteref"><sup>11</sup></a> These declines reflect both affordability issues and geographic inaccessibility, especially in rural regions where few schools go beyond grade five.<a href="#fn12" class="footnote-ref" id="fnref12" role="doc-noteref"><sup>12</sup></a> Quality deficits are also evident: only 68% of students reach minimum proficiency in mathematics by the end of primary school, and 80% in reading.<a href="#fn13" class="footnote-ref" id="fnref13" role="doc-noteref"><sup>13</sup></a> Structural shortcomings such as insufficient infrastructure, undertrained teachers, and political interference further erode learning outcomes. Socioeconomic disparities exacerbate these problems as students from the poorest fifth of Nepal’s population show a stark attendance drop in higher grades, with only 7.6% in grades 9–10 and 1.6% in grades 11–12, compared to 56.5% and 30.5% among the wealthiest fifth.<a href="#fn14" class="footnote-ref" id="fnref14" role="doc-noteref"><sup>14</sup></a> Thus, while access has improved in measurable ways, Nepal’s public education system remains constrained by issues of retention, quality, and inequality. These are the main obstacles that must be addressed as Nepal strives to realize its constitutional guarantees of free and compulsory education. ## Nepal’s Remittance Economy To fully understand the current landscape of public education in Nepal, it is important to look beyond statistics relating to schooling itself and consider several relevant external factors, firstly, remittance. Nepal’s remittance economy is deeply intertwined with the current wave of outmigration in Nepal. In 2023, remittances amounted to approximately US$11 billion, constituting 26.6% of Nepal’s Gross Domestic Product (GDP).<a href="#fn15" class="footnote-ref" id="fnref15" role="doc-noteref"><sup>15</sup></a> This large-scale presence of remittance in Nepal’s economy is relatively new, almost completely materializing in the early two-thousands. This began with an initial spike in personal remittances from 2.4% in 2001 to 11.2% in 2002. The rate continued to rapidly increase until 2009, when it hit 23.2%.<a href="#fn16" class="footnote-ref" id="fnref16" role="doc-noteref"><sup>16</sup></a> Since then, the percentage has floated around the low to mid twenties for the past fifteen years, showing there is now a reliable and large share of Nepali people working abroad. This influx has brought many benefits for Nepali families, including improved living standards back home, access to better education for children, and the ability to build homes or invest in land. Remittance is also having an impact on household income across the country, especially in rural areas where remittances now account for about 80% of smallholder farm households’ income.<a href="#fn17" class="footnote-ref" id="fnref17" role="doc-noteref"><sup>17</sup></a> Due to the financial benefits and the social influence that come with a nationwide trend, pressure to participate in the remittance economy for many Nepalis is unavoidable. While remittances provide crucial financial support to households and contribute significantly to Nepal’s GDP, the country’s reliance on labor migration comes with several long-term disadvantages. The sustained outflow of young and working-age citizens, particularly skilled and educated individuals, leads to a depletion of human capital, weakening key sectors such as healthcare, education, and industry. This “brain drain” hampers domestic productivity and innovation, making it harder for Nepal to build a self-sustaining economy.<a href="#fn18" class="footnote-ref" id="fnref18" role="doc-noteref"><sup>18</sup></a> So, while remittance and outmigration have helped increase general wealth within Nepal, they have also introduced new challenging dynamics for the country to face. ## Private Education in Nepal One crucial way that the national focus on remittance is affecting Nepal’s education system is the link between the remittance economy and Nepal’s private education. The rates of private school usage have been high in Nepal for decades. In 2015, private schools accounted for 19% of the country’s schools, housing the same ratio of enrolled students. This trend has only continued to increase, as in 2024, 23% of Nepal’s schools are privately owned, and they house over 30% of all students.<a href="#fn19" class="footnote-ref" id="fnref19" role="doc-noteref"><sup>19</sup></a> From 2015 to 2024, the total number of government-funded schools has fallen by around 1,900, while about 2,000 new private schools have opened over the same time period.<a href="#fn20" class="footnote-ref" id="fnref20" role="doc-noteref"><sup>20</sup></a> These numbers tell the story of a large and continually growing number of Nepali families opting out of free public education and choosing to send their children to private schooling instead. There has been some public frustration about the firm grasp that privatization has on Nepal’s education system. In a 2018 interview with the Kathmandu Post, Binaya Kusiyat, a professor at the Tribhuvan University and an independent researcher, said, “Allowing private schools to function as they have been for all these years is making a mockery of the socialism-oriented constitution.”<a href="#fn21" class="footnote-ref" id="fnref21" role="doc-noteref"><sup>21</sup></a> Kusiyat here points out the irony to be found in the dissonance between Nepal’s stated politics and the on-the-ground reality at play. In response to these criticisms, former Minister of Education Giriraj Mani Pokharel had stated that Nepal needed the privatization of schooling because the government did not have the budget to take ownership of the entire schooling industry by itself. He said, “Both private and public schools can go hand in hand and complement each other.”<a href="#fn22" class="footnote-ref" id="fnref22" role="doc-noteref"><sup>22</sup></a> Both of these points hold true, as Nepalis have the private sector to thank for the increase in high-quality education available. However, truly equitable education will never be possible until the public sector expands its reach and quality to become a more viable option. It is worth noting that the choice families make to send their kids to private education goes deeper than a desire for ‘higher quality,’ it is woven together with the simultaneous growth of Nepal’s remittance economy. This correlation was explored in a recent study from Tribhuvan University titled: Remittance-Driven Educational Choices: Trends in Nepal’s Private School Enrollment. The study presents two main factors driving this correlation. First, due to the current prevalence of the remittance economy, many families now have access to more wealth and are using it to invest in private education for their children. On top of this, there is a clear nationwide desire to move abroad and take part in the remittance economy, and many consider a strong education the simplest way to do so. This creates a cycle where Nepalis are investing past remittances towards private education for their children, with the hopes of producing future remittances down the line.<a href="#fn23" class="footnote-ref" id="fnref23" role="doc-noteref"><sup>23</sup></a> This means remittance is contributing to people’s means and desire to pursue private education. ## Decreasing Rural Populations Another thing to mention at a national scale is the nationwide phenomenon of dwindling rural populations. Along with people leaving the country to participate in the remittance economy, Nepal is also seeing a more general flight out of rural areas to the country’s cities. Unilaterally, villages in the hills have seen a depletion of local populations in recent years. A 2023 article from the Nepali Times on the topic states, “The latest figures from the National Statistics Division show that more than a third of Nepalis are now living in a place away from where they were born. Nepal’s overall population growth is now down to 0.93% per year, but the mountain areas have near negative growth, while the Tarai has 1.56% growth.”<a href="#fn24" class="footnote-ref" id="fnref24" role="doc-noteref"><sup>24</sup></a> This shift is due to the aforementioned dynamics of remittance and outmigration, along with people seeking better education, healthcare, and employment within the country. Speaking strictly on education as a motive, this is because the schooling available in the cities is generally viewed as of higher quality than what is available in the villages. This means that families with the means from villages often send their children to school in either Kathmandu or Pokhara, where they live with relatives or at private youth hostels.<a href="#fn25" class="footnote-ref" id="fnref25" role="doc-noteref"><sup>25</sup></a> These generally decreasing populations have added another layer to the struggle to provide quality education to rural areas due to depleting class sizes. Research Methods My research on Educational Nepal specifically focuses on the changes and development of education in a specific region of Nepal’s Mustang district. I spent 18 days in part of the Lower Mustang region of Nepal, on the eastern side of the Kali Gandaki River, specifically isolated to the parallel Jhong and Panda river valleys. These adjacent valleys hold nine distinct villages between them, where I conducted my research. I spent my first ten days of this period staying with a host family in Lubra, on the banks of the Panda Khola (river in Nepali), at the hostel they owned and operated. In Lubra, I applied a mixed methods research approach with both formal and informal interviews. My research focus was split between gaining specific information on the successes, failures, and available resources of the local school, as well as gaining an understanding of community opinions on education and the local schooling available. For the former, during my stay in Lubra I conducted a series of interviews with with staff of the local school and youth hostel. However, to learn about community opinions, my research was conducted informally through casual conversation with community members on the topic of local education, along with where they or their children had attended school, and why. Central to my ability to be successful in the community research process was my attempt to integrate within the community as best I could throughout my stay in Lubra. The best way I found to do this was to spend lots of time within my host family, and from there have them connect me to the rest of the village. I did this by hanging out in the kitchen, eating the same food they ate (instead of ordering off the menu like the other travelers), and helping with chores around the house. For the latter half of the week, I served as a pseudo staff member for the hostel, regularly doing tasks like taking food orders, cleaning rooms when travelers moved out, and washing dishes. I tried to be helpful however possible, like how one evening my host brother sent me to go chat with some travelers to keep them distracted from the fact that he had forgotten part of their order, and the food would be a bit late. I had lots of fun in this role, and believe that engaging in work with my family was a key mechanism through which we were able to build relationships. Over the course of my stay in Lubra, the relationships I built with my family spread intro relationships with other members of the comunity. This happened as I joined each of them around the village, got to know their friends, and was invited to community gatherings. The relationships I built in Lubra proved very helpful for gaining insights in my research, and more so, were a deeply meaningful aspect of this experience for me. After ten days in Lubra I left for a five day period to conduct research on the schooling available in neghboring villages, to add a regional context to my research. Over these five days, I visited 8 villages and stayed in three hostels. On the first day I walked two hours from Lubra to Kagbeni where I stayed for the day to conduct inteviews with locals and people at the school. The next morning, I walked about three hours up the valley to Khinga, where I stayed the night and spent that afternoon and the following morning conducting local interviews, including at the school. On the third day, I walked another hour up the valley to Jharkot, where I stayed for the following three nights. Jharkot exists as the largest town in a wide valley with five other neighboring villages, which are all a 15 to 45 minute walk from their closest neighbor. At the top of this valley sits the holy Muktinath temple, which is an important pilgrimage site for both Hindus and Buddhists. I spent two and a half days walking between the villages in this valley to conduct interviews at every school, and with locals I met along the way. Through this portion of my research, my findings do not reach as deep into the communites as for Lubra since in some towns I was only able to spend a few hours. However, it was extremely helpful to grow my regional understanding of the schooling resources available and the decisions parents are making regarding their children’s education. This portion of my research made clear how interconected the issues of education are between neghboring vilages and the rippeling impact that Lubra’s youth hostel was having across the region. After this five day period of travel, I returned to Lubra for the final four days of my research to ask more questions no based on my shifted regional understanding, as well as to spend a few more days with the community in Lubra that I had grown quite fond of. My Positionality In order to contextualize my findings, it is important to first consider my positionality as a researcher in Nepal. First off, while I do have a fair grasp on the Nepali language, I have only been learning it for the past four months and am far from fluent. This meant that while conducting interviews in Nepali, or really just making conversation, there were often words I didn’t understand. Furthermore, if people started speaking with me too quickly, I may have had a difficult time grasping all that they were telling me. To confront this issue, I made a conscious effort during interviews to repeat people’s statements back to them to make sure I was understanding correctly. Considering this strategy, I am confident in the accuracy of my findings; however, the language barrier present is still noteworthy. Secondly, having white skin, I am visibly a foreigner to all Nepali people that I meet. Generally, I don’t believe this had an impact on the answers I would receive in interviews. However, since many of the schools I visited were quite poorly funded, some principals I spoke with may have thought that speaking with me would help acquire more funding for their school. One time, financial assistance for the school was specifically requested of me. Overview of Lubra Lubra is a village in the Mustang district of Nepal. It sits at the base of a steep valley carved by the Panda Khola (River), just upstream from where it meets the holy Kali Gandaki River. Lubra is a small village of traditional homes, with about 40 current residents. The Village name in full is pronounced and written Lubrak, which translates to valley (lu) of the serpent spirits (brak), in the local Tibetan dialect. However, the village is most commonly written and pronounced by locals as Lubra, (it can also be found online and in signage as “Lubra”). The village is surrounded by terraced farms where residents grow much of their produce for the year, along with nationally famous mustang apples, which are sold to the market. The village is also a day’s hike from the nearby Anapurna Circuit Trek, so during the high seasons of spring and fall, the village sees a fair number of tourists who either pass through for lunch or stay in one of the village’s hostels. Most notably, what difirentiates Lubra from other nearby villages is that its the only remaining village in the Mustang district that practices the Bon religion. Bon is the indigenous religion of Tibet, tracing back hundreds or potentially thousands of years before Buddhism entered Tibet in the 7th century. It is believed that the preexisting Bon religion is deeply ingrained in what we now know as Tibetan Buddhism.<a href="#fn26" class="footnote-ref" id="fnref26" role="doc-noteref"><sup>26</sup></a> However, as Buddhism was adopted as the state religion by the growing Tibetan empire, Bonpos (followers of the Bon religion) began to face persecution. Fearing the potential of forced conversion, many Bonpos migrated to the margins of the empire, mainly to the Himalayas, along with areas to the east where they still reside today.<a href="#fn27" class="footnote-ref" id="fnref27" role="doc-noteref"><sup>27</sup></a> The Mustang district lies on the north side of the Himalayan range within the Tibetan rainshadow, giving it a desert-like climate. This creates a stark environmental contrast from the subtropical Nepali hills. In line with these environmental distinctions are also cultural ones. Largely, Mustang’s population considers themselves ethnically Tibetan, and they speak a local dialect of the Tibetan language called Loke as their mother tongue. My host father told me that people in the village had only begun speaking Nepali about 60 years ago. This dynamic contributes to Mustang’s unique regional identity.</p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Dilas, Dragana Borenovic, et al.&nbsp;“Education in Nepal.” WENR, World Education News + Reviews, 16 July 2024.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>National Planning Commission, Nepal. Education Sector Progress Report 2024/25. Government of Nepal, 2025.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Change in male and female National Literacy Rates 2001 to 2021: 2001: (Male: 62.7% and Female: 32.9%) 2021: (Male: 81% and Female: 63.3%). ICA, “The Future of Education in Nepal – Trends to Watch.” International Center for Academics, 24 Jan.&nbsp;2025.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Government of Nepal. Constitution of Nepal. 2015. Art. 31, Sec. 2.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Ghimire, Binod. “Ministry Unveils Blueprint to Ensure Free Education.” The Kathmandu Post, 22 Aug.&nbsp;2024.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>NUFFIC - the Dutch Organization for Internationalisation in Education, “Primary and Secondary Education in Nepal.” Accessed 6 June 2025.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>NUFFIC - the Dutch Organization for Internationalisation in Education, “Primary and Secondary Education in Nepal.” Accessed 6 June 2025.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>Dilas, Dragana Borenovic, et al.&nbsp;“Education in Nepal.” WENR, World Education News + Reviews, 16 July 2024.<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p>Dilas, Dragana Borenovic, et al.&nbsp;“Education in Nepal.” WENR, World Education News + Reviews, 16 July 2024; Anand, Lakshya. “Improving Education in Nepal.” The Borgen Project, 26 Aug.&nbsp;2024.<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10"><p>Nowak, A. Z., &amp; Dahal, G. (2016). THE CONTRIBUTION OF EDUCATION TO ECONOMIC GROWTH: EVIDENCE FROM NEPAL. International Journal of Economic Sciences, 5(2), 22-41. https://doi.org/10.20472/ES.2016.5.2.002<a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn11"><p>National Planning Commission, Nepal. Education Sector Progress Report 2024/25. Government of Nepal, 2025.<a href="#fnref11" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn12"><p>Asian Development Bank. Nepal: Education Sector Assessment. Asian Development Bank, 2023.<a href="#fnref12" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn13"><p>Ministry of Education, Nepal. National Assessment of Student Achievement Report. Government of Nepal, Ministry of Education, 2024.<a href="#fnref13" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn14"><p>MICS, Central Bureau of Statistics, Nepal. Multiple Indicator Cluster Survey (MICS) 2023. Government of Nepal, Central Bureau of Statistics, 2023.<a href="#fnref14" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn15"><p>Lohia, Yamini. IFAD, IOM Celebrate Vital Role of Remittances in Nepal’s Development, International Fund for Agricultural Development, 11 June 2024.<a href="#fnref15" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn16"><p>“Personal Remittances, Received (% of GDP) - Nepal.” World Bank Open Data, World Bank Group, 2024.<a href="#fnref16" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn17"><p>Lohia, Yamini. IFAD, IOM Celebrate Vital Role of Remittances in Nepal’s Development, International Fund for Agricultural Development, 11 June 2024.<a href="#fnref17" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn18"><p>Thapa, Smriti; Kafle, Aayushi; Khatri, Prasant; and Gurung, Nishan, “Brain Drain in Nepal: Causes and Effects” (2024). First Year Composition Colloquium. 2. https://arch.astate.edu/clac-eng-fycc/2<a href="#fnref18" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn19"><p>Ghimire, Binod. “Exemplary Public Schools.” The Kathmandu Post, 1 Jan.&nbsp;2025.<a href="#fnref19" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn20"><p>Ghimire, Binod. “Exemplary Public Schools.” The Kathmandu Post, 1 Jan.&nbsp;2025.<a href="#fnref20" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn21"><p>Ghimire, Binod. “Privatisation in Education: Private Schools Dominate National Education.” The Kathmandu Post, 28 Sept.&nbsp;2018.<a href="#fnref21" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn22"><p>Ghimire, Binod. “Privatisation in Education: Private Schools Dominate National Education.” The Kathmandu Post, 28 Sept.&nbsp;2018.<a href="#fnref22" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn23"><p>Bisna Acharya, Rabindra Shiwakoti, Surya Sigdel, &amp; Hem Chandra Dhakal. (2025). Remittance-Driven Educational Choices: Trends in Nepal’s Private School Enrollment. Interdisciplinary Journal of Management and Social Sciences, 6(1), 53–72. https://doi.org/10.3126/ijmss.v6i1.75382<a href="#fnref23" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn24"><p>Dahal, Gopal. “Eastern Nepal’s Depopulating Mountains.” Nepali Times, 1 Apr.&nbsp;2023.<a href="#fnref24" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn25"><p>Tareque, Mohammad, and Tasfia Tasneem Ahmed. “Growing Rural-Urban Education Divide.” The Kathmandu Post, 3 Apr.&nbsp;2024.<a href="#fnref25" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn26"><p>“Bon.” Encyclopædia Britannica, Encyclopædia Britannica, inc., 25 Apr.&nbsp;2017, www.britannica.com/topic/Bon-Tibetan-religion.<a href="#fnref26" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn27"><p>Ramble, Charles, and Kemi Gurung. “Lubrak: A Village of the Bon Religion in Mustang.” 2008.<a href="#fnref27" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>© Henry Nadel, 2025 · Built with Quarto</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

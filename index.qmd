@@ -11,11 +11,15 @@ about:
       href: "https://github.com/henrynadel"
 ---
 
-Hi! My name is Henry Nadel. I am currently in my final year at Pitzer College where I study Environmental Analysis on a public policy track with an additional minor in Data Science. I am particularly interested in using data to inform public policy along with using graphing and GIS software to convey data in an accessible manner. When I'm not in the classroom I can usually be found outside running, climbing, or exploring one of California’s amazing parks.
+Hi! My name is Henry Nadel. I am currently in my final year at Pitzer College where I study Environmental Analysis on a public policy track with an additional minor in Data Science. I am particularly interested in using data to inform public policy along with using graphing and GIS software to convey data in an accessible manner. When I'm not in the classroom I can usually be found outside on my bike, climbing, or exploring one of California’s amazing parks.
 
 Currently: Senior at Pitzer College\
 Major: Environmental Analysis; Minor: Data Science\
 Based in: Claremont, CA\
 Originally from: Newton, MA
+
+## The Website:
+
+I built this website for a project in my intro to Data Science in R class as a initially as a way to showcase projects I had completed in various types of data analytics through the course. The projects in Data Science exist under the "Data Vis" tab in the top row. Since then, I have continued to build out the website, adding my work from inside and outside the classroom that I'd like to showcase. The "Blog posts" section features various papers and pieces of academic writing, "GIS Mapping" has maps that I've made, and the "Research" tab holds larger scale research projects. As a fun addition, I've also added a tab with some of my photography. I hope you enjoy exploring my work!
 
 ------------------------------------------------------------------------

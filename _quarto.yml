@@ -15,21 +15,33 @@ website:
         - href: tidytuesday-2.qmd
           text: "TidyTuesday - Gas Pricing"
         - href: text_analysis.qmd
-          text: "Analysing NYTimes Headlines"
+          text: "Analyzing NYTimes Headlines"
         - href: Permutation_test.qmd
           text: "Permutation Testing"
         - href: sql_project.qmd
-          text: "Analysing Policing with SQL"         
+          text: "Analyzing Policing with SQL"         
     - text: Blog Posts
       menu:
         - href: ethics_blog.qmd
           text: "Predictive Analytics at Target"
         - href: surveillance.qmd
-          text: "ICE Surveillance Technologies"
+          text: "I.C.E. Surveillance Technologies"
+        - href: Abu_Muslim.qmd
+          text: "Abu Muslim"
     - text: GIS Mapping
       menu: 
         - href: Warehousing_Corona.qmd
-          text: "Warehousing in Corona CA"
+          text: "Warehouses in Corona CA"
+    - text: Research
+      menu: 
+        - href: ISP.qmd
+          text: "Nepal's Regional Schooling"
+        - href: QM_paper.qmd
+          text: "Warehouse Growth in the IE"
+    - text: Photography
+      menu: 
+        - href: nepal_flics
+          text: "From Nepal"
     right:
     - icon: github
       href: https://github.com/[your-username]/[your-repo]
