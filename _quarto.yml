@@ -19,11 +19,17 @@ website:
         - href: Permutation_test.qmd
           text: "Permutation Testing"
         - href: sql_project.qmd
-          text: "SQL Project"         
+          text: "Analysing Policing with SQL"         
     - text: Blog Posts
       menu:
         - href: ethics_blog.qmd
           text: "Predictive Analytics at Target"
+        - href: surveillance.qmd
+          text: "ICE Surveillance Technologies"
+    - text: GIS Mapping
+      menu: 
+        - href: Warehousing_Corona.qmd
+          text: "Warehousing in Corona CA"
     right:
     - icon: github
       href: https://github.com/[your-username]/[your-repo]

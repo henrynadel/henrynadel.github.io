@@ -317,7 +317,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="./sql_project.html">
- <span class="dropdown-text">SQL Project</span></a>
+ <span class="dropdown-text">Analysing Policing with SQL</span></a>
   </li>  
     </ul>
   </li>
@@ -329,6 +329,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="./ethics_blog.html">
  <span class="dropdown-text">Predictive Analytics at Target</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./surveillance.html">
+ <span class="dropdown-text">ICE Surveillance Technologies</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-gis-mapping" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">GIS Mapping</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-gis-mapping">    
+        <li>
+    <a class="dropdown-item" href="./Warehousing_Corona.html">
+ <span class="dropdown-text">Warehousing in Corona CA</span></a>
   </li>  
     </ul>
   </li>
@@ -377,9 +392,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>The following data set was gathered and provided by TidyTuesday, linked here:<br>
 <a href="https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-01-21/readme.md" class="uri">https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-01-21/readme.md</a></p>
-<p>The data was sourced from the Himalayan Database which keeps information on peaks and mountaineering expeditions that take place in the Himalayan Region. The full himalayan database catalog can be found here:</p>
+<p>The data was sourced from the Himalayan Database which keeps information on peaks and mountaineering expeditions that take place in the Himalayan Region. The full Himalayan database catalog can be found here:</p>
 <p><a href="https://www.himalayandatabase.com/index.html" class="uri">https://www.himalayandatabase.com/index.html</a></p>
-<p>The following graph attempts to compare the volume of expeditions per region listed in the data on all mountains exceeding 7,000 meters. This is done by joining the “peaks” and “expeditions” data sets, filtering for only peaks above 7,000m, and then counting the expeditions by region.</p>
+<p>The following is a basic data visualization looking to compare the volume of expeditions per region on all mountains exceeding 7,000 meters. Shown first is the R code used to produce the visualization, which joins the “peaks” and “expeditions” data sets, filters for only peaks above 7,000m, and then counts the expeditions by region. The final code chunk is a ggplot to visualize the data.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># joining</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>exped_tidy <span class="ot">&lt;-</span> exped_tidy <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">PEAKID =</span> <span class="fu">as.character</span>(PEAKID))</span>

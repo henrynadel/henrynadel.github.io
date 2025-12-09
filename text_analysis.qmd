@@ -2,15 +2,17 @@
 title: "Analysing New York Times Headlines"
 ---
 
+On this page I analyze a dataset of headlines from all New York Times articles dating back to 1996. My goal is to explore patterns in three areas:
 
-On this page I analyze a data set with headlines from all New York Times articles dating back to 1996. My analysis focuses on (1) frequent content words, (2) locations referenced, and (3) how often numbers and years appear in headlines. 
+(1) which content words show up most frequently,
+(2) which geographic references appear most often, and
+(3) how often numbers—especially calendar years—are used in the paper’s headlines.
 
-This data was soruced from the `NYTimes` dataset in the `RTextTools` package.
-
-
-
+This dataset comes from the NYTimes sample data included in the RTextTools package, which provides a structured and labeled collection of headline text suitable for text-mining exercises.
 
 ## Frequest Word Usage
+
+The following code cleans the headline text by lowercasing, removing punctuation, and stripping extra spaces. It then tokenizes the titles into individual words, removes stop words (like “the,” “and,” etc.), filters out very short strings, and counts the most frequent content words. The final object, top_words, keeps only the 15 most common meaningful words.
 
 ```{r setup, include=FALSE}
 # Packages
@@ -59,12 +61,14 @@ ggplot(top_words, aes(x = reorder(word, n), y = n)) +
   theme_minimal(base_size = 12)
 ```
 This bar chart shows the most common words in found in the headline column of the data set. It's an interesting way to find many of the most common topics covered by the New York Times over the past three decades. 
-Notably, the top three words stand distinctively above the rest in usage: Bush, Iraq, and War. this makes sense as all three of these words point to the same general event of President Bush's decision to invade Iraq following 9/11. This makes sense as it was a large global event that toom place near the beginning of this data's period of observation. These findings make an interesting claim about how extensively the war in Iraq penetrated the American news cycle.
+Notably, the top three words stand distinctively above the rest in usage: Bush, Iraq, and War. this makes sense as all three of these words point to the same general event of President Bush's decision to invade Iraq following 9/11. This makes sense as it was a large global event that took place near the beginning of this data's period of observation. These findings make an interesting claim about how extensively the war in Iraq penetrated the American news cycle.
 
 
 ## Frequently Mentioned Places
 
 in this section I find the locations that are most frequestly refrenced by searcing for words that follow the preposition "in... " 
+
+The code extracts any capitalized phrase following the word “in,” cleans the extracted place strings, counts how often each appears, and returns the top ten most frequent location phrases.
 
 ```{r}
 locs <- nyt |>
@@ -96,11 +100,16 @@ ggplot(locs, aes(x = reorder(loc, n), y = n)) +
   theme_minimal(base_size = 12)
 ```
 
-Following the previous section, it is unsurprising that far and away the most frequently mentioned location is Iraq, further emphasizing the impact of the war in Iraq on the american news cycle. Another interesting finding from this is a lack of reference to Africa or South America in the top 10 spots. Furthermore, New York and Florida stick out as the only U.S. states listed.
-It is worth noting that many of these names have much higher tallies when counting total uses. The specific criteria of words following "in" is meant to isolate the places where stories are taking place, opposed to total mentions. 
+The clear standout here is Iraq, which again reinforces how central the region was to U.S. news coverage in the early 2000s. Interestingly, the list is dominated by Middle Eastern and European locations, while continents such as Africa and South America do not appear in the top ten at all, revealing something about the NYT’s geographic priorities and what kinds of crises receive sustained attention. Among U.S. locations, only New York and Florida make the list, pointing to the newspaper’s home base and what I would guess is the frequency of election-related stories tied to Florida. These counts measure the frequency of locations framed as settings (“in ___”), not total mentions, making the pattern a bit more precise in identifying where events are depicted as happening.
+
+It is worth noting that many of these names have much higher tallies when counting total uses. The specific criteria of words following "in" is meant to isolate the places where stories are taking place opposed to total mentions, however, this does introduce a limitation to the findings of this table. 
 
 
 ## Headlines Containing Numbers & Years
+
+Numbers appear in headlines for many reasons: summaries of statistics, references to specific quantities, and, importantly, mentions of historical and future years. This section measures how common numeric content is and which years are referenced most often.
+
+The following code checks whether each headline contains any number and separately extracts four-digit years beginning with 19xx or 20xx. It then calculates the share of headlines containing numbers.
 
 ```{r}
 title_nums <- nyt |>
@@ -126,6 +135,11 @@ kable(
   caption = "% of NYT headlines with numeric content"
 )
 ```
+Roughly 11% of headlines include at least one number—meaning that while numerical information is not dominant in headline writing, it still appears with some regularity
+
+# Most Mentioned Years
+
+This code unwraps all extracted years into a long table, counts how often each appears, and displays the ten most frequently referenced years in NYT headlines.
 
 ```{r}
 # Table — Most mentioned years
@@ -142,8 +156,7 @@ kable(
 )
 ```
 
-
-It's interesting how much of this list is years before the period of observation from the data set beginning in 1996. This indicates a trend of using years in headlines more frequently when referring to events farther back in the past. It's also worth noting the "Count" column, which shows that they year 2000 is mentioned by far the most frequently, and all but six years were mentioned only once. 
+A striking number of the years listed fall before the dataset begins in 1996. This suggests that when journalists reference a year, they tend to be anchoring a story in a more distant historical context—invoking events from decades prior rather than referencing the near-present. The year 2000 appears far more often than any other, likely due to Y2K coverage, millennium retrospectives, and political shifts unfolding around that time. Most of the other years are mentioned only once or twice, showing that specific years tend to be invoked sparingly except during historically charged moments.
 
 
 Data Citation:

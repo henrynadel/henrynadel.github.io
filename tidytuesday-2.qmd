@@ -5,9 +5,9 @@ title: "TidyTuesday - Gas Pricing"
 The following data was provided by TidyTuesday, linked here:\
 <https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-07-01/readme.md>
 
-The data was sourced from the U.S. Energy Information Administration (EIA), which publishes average retail gasoline and diesel prices each Monday. The original data (including additional datasets) can be found at [eia.gov/petroleum/gasdiesel](https://www.eia.gov/petroleum/gasdiesel/)
+The data was sourced from the U.S. Energy Information Administration (EIA), which publishes average retail gasoline and diesel prices each Monday. The original data was released by the U.S. Energy Information Administration, linked here: [eia.gov/petroleum/gasdiesel](https://www.eia.gov/petroleum/gasdiesel/)
 
-The following code averages out weekly reports to create average annual gasoline prices. Then, the data is graphed to create a visual display of the change in American gas pricing over time.
+The following code averages out weekly reports to find average annual gasoline prices in the United States. Then, the data is graphed to create a visual display of the change in American gas pricing over time.
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
@@ -33,7 +33,11 @@ gas_yearly <- weekly_gas_prices |>
   group_by(year) |>
   summarise(avg_price = mean(price, na.rm = TRUE), .groups = "drop") |>
   arrange(year)
+```
 
+The following is a printed list of the average price of gas in the U.S. from 1993 to 2025.
+
+```{r}
 print(gas_yearly, n = Inf)
 ```
 
@@ -45,7 +49,7 @@ ggplot(gas_yearly, aes(x = year, y = avg_price, group = 1)) +
   labs(
     title = "Average U.S. Gasoline Price by Year",
     x = "Year",
-    y = "Average price (USD/gal)"
+    y = "Average price (USD)"
   ) +
   scale_y_continuous(labels = scales::dollar_format()) +
   scale_x_continuous(breaks = scales::pretty_breaks()) +

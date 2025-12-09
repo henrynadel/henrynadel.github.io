@@ -18,9 +18,7 @@ In this project, I conduct a small simulation study using a permutation test to 
 
 Specifically, I ask:
 
-|     Is there a relationship between economic growth through warehouse construction and local unemployment levels in Los Angeles, San Bernardino, and Riverside Counties from 1990 to 2023?
-
-This question is interesting because warehouse development is often seen as an engine of local job creation in the Inland Empire, but data can reveal whether such development truly corresponds with lower unemployment.
+Is there a relationship between economic growth through warehouse construction and local unemployment levels in Los Angeles, San Bernardino, and Riverside Counties from 1990 to 2023? I ask this question because warehouse development is often seen as an engine of local job creation in the Inland Empire, but data can reveal whether such development truly corresponds with lower unemployment.
 
 ## Data Used:
 
@@ -83,12 +81,12 @@ Each point represents one year between 1990 and 2023, with a linear trend line t
 
 ```{r}
 new_sqft_by_unemployment |>
-  ggplot(aes(x = Building_sqft, y = Unemployment_rate)) +
+  ggplot(aes(x = Unemployment_rate, y = Building_sqft)) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE) +
   labs(title = "Building Square Footage vs. Unemployment Rate",
-       x = "New building sq.ft. by year",
-       y = "Unemployment rate (%)") +
+       x = "Unemployment rate (%)",
+       y = "New building sq.ft. by year") +
   scale_x_continuous(labels = comma_format(accuracy = 1)) +
   theme_minimal()
 ```
@@ -159,6 +157,7 @@ The observed correlation of approximately −0.74 lies far in the left tail of t
 Out of 10,000 permutations, none produced a correlation as extreme, implying a very small p-value and evidence against the null hypothesis.
 
 ## Discussion
+
 This simulation suggests a negative relationship between warehouse construction and unemployment in the Los Angeles–San Bernardino–Riverside region from 1990 to 2023, meaning that in years when more warehouse square footage was built, unemployment rates tended to be lower. However, it's important to note that while the null hypothesis was disproved, that doesn't mean the initial data shown at the top has a strong linear correlation (which is why this data  got scrapped from the project i was originally using it for)
 
 Furthermore, this result does not imply direct causation. Both variables may be influenced by larger economic cycles (e.g., recessions in 2008 and 2020).

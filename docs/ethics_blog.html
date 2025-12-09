@@ -282,7 +282,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="./sql_project.html">
- <span class="dropdown-text">SQL Project</span></a>
+ <span class="dropdown-text">Analysing Policing with SQL</span></a>
   </li>  
     </ul>
   </li>
@@ -294,6 +294,21 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="./ethics_blog.html">
  <span class="dropdown-text">Predictive Analytics at Target</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./surveillance.html">
+ <span class="dropdown-text">ICE Surveillance Technologies</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-gis-mapping" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">GIS Mapping</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-gis-mapping">    
+        <li>
+    <a class="dropdown-item" href="./Warehousing_Corona.html">
+ <span class="dropdown-text">Warehousing in Corona CA</span></a>
   </li>  
     </ul>
   </li>
@@ -343,41 +358,42 @@ ul.task-list li input[type="checkbox"] {
 <section id="data-ethics-predictive-analytics-and-consumer-profiling-at-target" class="level1">
 <h1>Data Ethics — Predictive Analytics and Consumer Profiling at Target</h1>
 <section id="scenario-overview" class="level2">
-<h2 class="anchored" data-anchor-id="scenario-overview">1. Scenario Overview:</h2>
-<p>In the early 2010s, Target became widely known for using predictive analytics in ways that reshaped what retailers could infer from ordinary shopping patterns. As Charles Duhigg reported in <em>The New York Times Magazine</em> (2012), Target’s data science team analyzed years of transaction logs to pick up on subtle shifts—unscented lotion, certain supplements, cotton balls—that often signaled early pregnancy. By assembling these signals, they built what they called a “pregnancy prediction” score and deployed targeted coupons timed to match a customer’s likely trimester.</p>
-<p>What stood out in this case was not the model itself, but the sharp imbalance it created between the company and its customers. Most people shopping at Target had no sense that routine purchases were being interpreted as clues about a private stage of life. The anecdote of the father who learned of his daughter’s pregnancy through Target’s coupons captures this tension clearly: predictive systems can move faster and more invasively than social norms around privacy or disclosure. What the company described as personalization felt, for many, like surveillance.</p>
-<p>Writers in <em>Harvard Business Review</em> (HBR) John, Kim, and Barasz (2020), later suggested that cases like Target’s show why companies should “design for transparency.” Their argument rests on the idea that predictive analytics are inevitable, and that trust can be repaired if consumers are more involved. This view makes sense at a high level, but it also sidesteps a deeper issue: transparency may not resolve the discomfort people feel when companies use data to anticipate intimate parts of their lives. Sometimes the problem is not that consumers don’t understand the system—it’s that the system is doing something they would never knowingly agree to.</p>
+<h2 class="anchored" data-anchor-id="scenario-overview">1. Scenario Overview</h2>
+<p>In the early 2010s, Target became widely known for using predictive analytics in ways that reshaped what retailers could infer from seemingly ordinary shopping patterns. As Charles Duhigg reported in <em>The New York Times Magazine</em> (2012), Target’s data science team analyzed years of transaction logs to detect subtle purchasing shifts—unscented lotion, certain supplements, cotton balls—that often correlated with early pregnancy. By combining these signals, the team built what they called a “pregnancy prediction” score and mailed coupons timed to a customer’s likely trimester (Duhigg, 2012).</p>
+<p>What stands out in this case is not simply the technical capability of the model, but the imbalance it created between the company and its customers. Most shoppers had no awareness that routine purchases could be interpreted as indicators of a private life event. The now-famous anecdote of the father who learned of his daughter’s pregnancy through Target’s mailed coupons illustrates this tension—predictive systems can surface intimate inferences long before individuals choose to share them. What Target described as personalization felt, to many, like an unexpected intrusion into family dynamics.</p>
+<p>John, Kim, and Barasz (2020) argue that cases like Target’s underscore the need for companies to “design for transparency,” suggesting that trust can be strengthened when consumers understand how their data is being used. Their point about transparency is valuable, but it may not fully resolve the discomfort raised by the Target example. Even if consumers knew more about the system, many would still object to a retailer using ordinary purchases to infer something as personal as pregnancy. In other words, the issue is not always misunderstanding—it is the nature of the inference itself.</p>
 <hr>
 </section>
 <section id="ethical-analysis-four-issue-areas" class="level2">
 <h2 class="anchored" data-anchor-id="ethical-analysis-four-issue-areas">2. Ethical Analysis: Four Issue Areas</h2>
 <section id="a.-permission-structure-consent" class="level3">
 <h3 class="anchored" data-anchor-id="a.-permission-structure-consent">A. Permission Structure &amp; Consent</h3>
-<p>As Duhigg describes, Target built its pregnancy model by stitching together an assortment of everyday data sources: guest IDs, credit card transactions, coupon use, website behavior, and store surveys. At no point were customers explicitly asked whether this information could be used to infer pregnancy. Consent was hidden inside broad loyalty-program disclaimers that most people never read.</p>
-<p>The HBR authors argue that this is a failure of meaningful consent. They emphasize that real consent requires clarity, purpose, and some sense of value returned to the consumer. In this case, however, the benefits flowed almost entirely to Target. Customers were not just unaware, they were structurally excluded from knowing how their data were being interpreted.</p>
+<p>Duhigg (2012) explains that Target’s model was built by stitching together information from guest IDs, credit card transactions, coupons, website behavior, and store surveys. At no stage were customers explicitly asked whether this data could be used to generate predictions about pregnancy. Any “consent” technically existed only within broad loyalty-program disclaimers—documents that few people read, and that did not specify the possibility of intimate inferences being drawn from their behavior.</p>
+<p>John et al.&nbsp;(2020) argue that this falls short of <em>meaningful</em> consent, which they define as consent that involves clarity, purpose, and a sense of reciprocal benefit. The term “meaningful” here does not imply that Target violated its privacy policy—something we cannot determine from available reporting—but rather that customers had no reasonable way to anticipate how their data would be interpreted. The company may have met the minimal legal requirements of consent, but consumers lacked the information necessary to understand, let alone influence, how their purchasing behavior was being used.</p>
+<p>It is also important to differentiate between inference and disclosure. While the mailed coupons did reveal something private, they did not make pregnancy status “fully public.” Instead, they introduced ambiguity and the possibility of unwanted inference within a household—something subtler than public disclosure but still ethically significant.</p>
 </section>
 <section id="b.-data-collection-process-identifiability" class="level3">
 <h3 class="anchored" data-anchor-id="b.-data-collection-process-identifiability">B. Data Collection Process &amp; Identifiability</h3>
-<p>Each customer’s behavior was tracked through a persistent “Guest ID,” creating a long-term map of their purchasing life. Even if names were removed internally, the targeted coupons mailed to specific households made the inference effectively public. A prediction—correct or not—arrived in the mailbox as a tangible object, visible to anyone in the home.</p>
-<p>The HBR perspective emphasizes transparency, suggesting that if people better understood how their data were used, they would feel more comfortable. I disagree. The discomfort here is not rooted in confusion; it is rooted in the fact that predictive profiling transforms private behaviors into labels that can spill into the physical world. Transparency does nothing to change the basic dynamic in which a company can infer something personal and then disclose it, intentionally or not, through marketing. The issue is inherent to individualized profiling itself, not merely the lack of explanation around it.</p>
+<p>Target used a persistent “Guest ID” to link all aspects of a customer’s shopping life over time, effectively creating a long-term behavioral profile (Duhigg, 2012). Even if that ID was anonymized internally, the targeted coupons were sent to specific physical addresses, making the inference visible to anyone who handled the household mail. In practice, the model’s output moved beyond the database and into domestic space.</p>
+<p>John et al.&nbsp;(2020) suggest that transparency about data practices might improve consumer trust. But in this case, the discomfort does not stem from confusion about how data is used—it stems from the experience of being profiled in ways that feel intimate. Even a fully transparent system would still allow a company to infer something personal and then make that inference visible through marketing. The concern lies in the individualized nature of predictive profiling itself, not merely the lack of explanation around it.</p>
 </section>
 <section id="c.-representativeness-bias-fairness" class="level3">
 <h3 class="anchored" data-anchor-id="c.-representativeness-bias-fairness">C. Representativeness, Bias &amp; Fairness</h3>
-<p>Target’s model relied heavily on data from customers who had signed up for Targets baby registry, a group that reflects only a portion of expecting parents. Their behaviors became the template for the algorithm, meaning the system encoded norms from a small sample about what pregnancy “looks like” in Target’s data. People who pay in cash, shop infrequently, or whose consumption patterns diverge from registry users could be missed or misclassified.</p>
-<p>HBR refers to this as a lack of “data empathy,” a concept encouraging designers to consider how systems affect people who don’t match the dataset’s dominant patterns. While this is a valuable lens, it still accepts the premise that large-scale consumer prediction is a neutral or inevitable practice that simply needs fine-tuning. But Target’s model did more than misrepresent some consumers—it helped define whose lives were legible to the system and whose were not. Weather it was inadvertent or not, this bias is a reflection of who Target considered worth identifying and targeting in the first place.</p>
+<p>According to Duhigg (2012), the pregnancy model relied heavily on data from customers who had signed up for Target’s baby registry. This subset became the template for “pregnancy behavior,” despite representing only a fraction of expecting parents. People who paid in cash, shopped infrequently, or whose consumption patterns differed from registry users were more likely to be misclassified or overlooked entirely.</p>
+<p>John et al.&nbsp;(2020) describe this issue as a lack of “data empathy,” urging designers to consider people who fall outside the dominant patterns of a dataset. While that framing is helpful, it assumes that predictive analytics are inevitable and simply need to be fine-tuned. But in this case, the bias was not just a technical flaw—it reflected who Target considered worth identifying and targeting. The model made some pregnancies highly legible while others remained invisible, mirroring commercial priorities rather than offering a neutral representation of the population.</p>
 </section>
 <section id="d.-unintended-uses-influence-of-power" class="level3">
 <h3 class="anchored" data-anchor-id="d.-unintended-uses-influence-of-power">D. Unintended Uses &amp; Influence of Power</h3>
-<p>Target’s system was not a passive observer. It used pregnancy predictions to shape long-term shopping habits, described internally as “habit formation.” This strategy turns Pregnancy, which can be understood as a period of heightened vulnerability for a consumer, into a commercial entry point. This is an example of predictive analytics doing more than just anticipating behavior, instead, through the process of habit building it sought to mold it.</p>
-<p>HBR imagines a different future in which predictive analytics empower consumers and distribute agency more evenly. But this vision relies on a kind of collaboration that is difficult to imagine within existing retail incentives. Target’s approach shows how easily predictive power becomes a tool for subtle influence. When prediction is tied to increased profit, corporations loose all incentive to collaborate or empathize with the concerns of consumers.</p>
+<p>Target’s predictive system was not designed only to observe behavior—it aimed to shape it. Internally, marketers described pregnancy as a strategic moment for “habit formation,” when brand loyalty could be molded and strengthened (Duhigg, 2012). Predictive analytics here became a tool not just for anticipating future purchases but for subtly influencing them.</p>
+<p>John et al.&nbsp;(2020) imagine a future in which predictive analytics empower consumers and distribute agency more evenly. But this vision assumes a level of collaboration that is difficult to reconcile with existing retail incentives. When prediction is tied to profit, companies are rewarded for leveraging moments of vulnerability, not for sharing power with consumers. Target’s case shows how easily predictive capability becomes a mechanism of subtle influence rather than a shared resource.</p>
 <hr>
 </section>
 </section>
 <section id="why-this-matters-who-benefits-who-is-neglected-or-harmed" class="level2">
 <h2 class="anchored" data-anchor-id="why-this-matters-who-benefits-who-is-neglected-or-harmed">3. Why This Matters: Who Benefits, Who Is Neglected or Harmed</h2>
-<p>The Target case demonstrates how predictive analytics, when deployed without meaningful consent or accountability, can reinforce existing power imbalances. The company gained a competitive advantage through early detection of pregnancy and stronger customer retention. For consumers, however, the costs were harder to see but deeply felt: a loss of control over how their personal information and the inferences built from it circulated through their lives.</p>
-<p>HBR encourages us to view this as part of a broader question about who gets to shape the landscape of predictive technology and what the implications of there choices are. That framing is useful, but only if we recognize that transparency alone cannot resolve the underlying asymmetry. A technically sophisticated model can still fail sociall or ethicall standards, because people do not experience systems as abstractions, their experiences are formed by the ways those systems touch their everyday lives.</p>
-<p>Looking across other data-driven systems, the pattern is familiar. Technologies built to optimize efficiency often overlook the realities of those they are applied to. It’s an important reminder of the ways that code can touch peoples lives, and that efficiency (especially when geared towards profit) is far from the only metric to needed to create ethical processing systems. In the case of Target, we see how when predictive systems operate quietly, without clear boundaries, they risk crossing lines that individuals never had the chance to draw themselves.</p>
+<p>The Target case demonstrates how predictive analytics, when deployed without meaningful consent or safeguards, can deepen existing power imbalances. The company gained a competitive advantage through early detection of pregnancy and improved customer retention. For consumers, the harms were less visible but still significant: a loss of control over how personal information—and the inferences drawn from it—circulated within their lives.</p>
+<p>John et al.&nbsp;(2020) encourage us to think more broadly about who gets to shape predictive systems and what values guide their design. That framing is helpful, but only if we acknowledge that transparency alone cannot resolve the deeper structural issues. A model can meet high technical standards and still struggle ethically if the people affected by it have little say in how it operates or what boundaries it observes.</p>
+<p>Across other data-driven systems, similar tensions appear. Technologies built for efficiency often overlook the realities of the people they act upon. Target’s system shows how predictive analytics, when operating quietly and without clear limits, can cross lines that individuals never had the opportunity to draw themselves. It’s a reminder that ethical data practices require more than accuracy or optimization—they require attention to how these systems shape everyday life.</p>
 <hr>
 </section>
 <section id="citations" class="level2">
