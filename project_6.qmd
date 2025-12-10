@@ -54,6 +54,7 @@ top_words <- titles_tokens |>
 # ggplot 
 
 ```{r}
+#| echo: false
 ggplot(top_words, aes(x = reorder(word, n), y = n)) +
   geom_col() +
   coord_flip() +
@@ -90,6 +91,7 @@ locs <- nyt |>
 # ggplot
 
 ```{r}
+#| echo: false 
 ggplot(locs, aes(x = reorder(loc, n), y = n)) +
   geom_col() +
   coord_flip() +
@@ -107,7 +109,9 @@ How can the data explored here help us to better understand preexisting theories
 
 Is this data enough to make a claim about over saturation of war in the news?
 
-# Media Control: The Spectacular Achievements of Propaganda (2002)
+# Noam Chomsky
+
+Media Control: The spectacular Achevements of Propaganda (2002)
 
 This book was published one year before the 2003 invasion of Iraq and is a foundational text for understanding modern propaganda.
 
@@ -120,13 +124,13 @@ Main takeaways:
 
 More generally, Chomsky is claiming propaganda is not just a facet, but the operating system for democracy. And it is essential to the mechanism of war.
 
-# Chomsky on Establishing a Norm
+# Establishing a Norm
 
 “Imperial Ambition: An Interview with Noam Chomsky.” Monthly Review (2003)
 
 "So if you want to establish a new norm, you have to do something. And the easiest way to do it is to select a completely defenseless target, which can be completely overwhelmed by the most massive military force in human history. However, in order to do that credibly, at least to your own population, you have to frighten them. So the defenseless target has to be turned into an awesome threat to survival which was responsible for September 11 and is about to attack us again, and so on and so forth. And that was indeed done. Beginning last September there was a massive effort which substantially succeeded in convincing Americans, alone in the world, that Saddam Hussein is not only a monster but a threat to their existence. That was the content of the October congressional resolution and a lot of things since. And it shows in the polls. And by now about half the population even believes that he was responsible for September 11.”
 
-# Takeaways:
+# Main Takeaways:
 
 -   Chomsky discusses using propaganda to sway public opinion as a key element of war
 
