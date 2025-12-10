@@ -51,7 +51,7 @@ top_words <- titles_tokens |>
   slice_head(n = 15)
 ```
 
-# ggplot 
+# ggplot
 
 ```{r}
 #| echo: false
@@ -120,7 +120,7 @@ Main takeaways:
 1.  Modern democracies rely on managing public opinion
 2.  The media functions to manufacture public consent
 3.  Propaganda works best when preemptively framing an issue
-4.   The goal is stability; not truth
+4.  The goal is stability; not truth
 
 More generally, Chomsky is claiming propaganda is not just a facet, but the operating system for democracy. And it is essential to the mechanism of war.
 
