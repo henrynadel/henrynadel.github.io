@@ -3,3 +3,11 @@ title: "Warehousing and Sensitive Receptors in Corona, CA"
 format: html
 ---
 
+The following is a map was made using ArcGIS Pro to show every warehouse in Corona, CA alongside the city’s “sensitive receptors,” which include schools, nurseries, hospitals, assisted-living facilities, parks, and all residential areas (shown in yellow and orange). Living or learning close to warehouses often means higher exposure to diesel exhaust, particulate matter, constant truck traffic, and industrial noise. These factors have been linked to asthma, cardiovascular problems, and other long-term health burdens in proximate communities.^[Yang, B., Zhu, Q., Wang, W., Zhu, Q., Zhang, D., Jin, Z., et al. (2024). Impact of warehouse expansion on ambient PM2.5 and elemental carbon levels in Southern California's disadvantaged communities: A two-decade analysis. GeoHealth, 8, e2024GH001091. https://doi.org/10.1029/2024GH001091] By visualizing these sites next to Corona’s expanding warehouse landscape, the map helps make local health risks legible, highlighting where freight infrastructure overlaps with spaces that depend on cleaner air. 
+
+The following map layout can also be viewed as an interactive web map by following [this link](https://services.arcgis.com/hVnyNvwbpFFPDV5j/arcgis/rest/services/EA138_Corona_H_Nadel/MapServer) and clicking "Map Viewer"
+
+
+```{r, echo=FALSE, out.width="80%", fig.align="center"}
+knitr::include_graphics("corona_map.png")
+```

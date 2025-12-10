@@ -1,5 +1,0 @@
----
-title: "nepal_flics"
-format: html
----
-

@@ -1,5 +1,6 @@
 ---
 title: "Analysing New York Times Headlines"
+format: html
 ---
 
 On this page I analyze a dataset of headlines from all New York Times articles dating back to 1996. My goal is to explore patterns in three areas:

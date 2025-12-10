@@ -1,0 +1,141 @@
+---
+title: "Using String Analysis of NYT Headlines to Understand Propaganda"
+author: "Henry Nadel"
+subtitle: "Linking Data findings to Political Philosophy"
+format:
+  revealjs:
+    scrollable: true
+    slide-number: true
+    show-slide-number: all
+    embed-resources: true
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+# Counting Frequent Word Usage
+
+The following code cleans the headline text by lowercasing, removing punctuation, and stripping extra spaces. It then tokenizes the titles into individual words, removes stop words (like “the,” “and,” etc.), and counts the most frequent content words.
+
+```{r setup, include=FALSE}
+# Packages
+library(tidyverse)
+library(stringr)
+library(tidytext)
+library(RTextTools)
+library(knitr)
+
+data(NYTimes)
+nyt <- NYTimes |>
+  as_tibble() |>
+  filter(!is.na(Title)) |>
+  distinct(Title, .keep_all = TRUE)
+```
+
+```{r}
+titles_tokens <- nyt |>
+  transmute(
+    Title_clean = Title |>
+      str_to_lower() |>
+      str_replace_all("[^a-z\\s]", " ") |>
+      str_replace_all("\\s+", " ") |>
+      str_trim()
+  ) |>
+  unnest_tokens(word, Title_clean, token = "words") |>
+  anti_join(stop_words, by = "word") |>
+  filter(str_detect(word, "^[a-z]+$"), nchar(word) >= 3)
+
+top_words <- titles_tokens |>
+  count(word, sort = TRUE) |>
+  slice_head(n = 15)
+```
+
+# ggplot 
+
+```{r}
+ggplot(top_words, aes(x = reorder(word, n), y = n)) +
+  geom_col() +
+  coord_flip() +
+  labs(
+    title = "Most Frequent
+    VWords in NYT Headlines since 1996",
+    x = "Word",
+    y = "Count"
+  ) +
+  theme_minimal(base_size = 12)
+```
+
+# Counting Frequently Mentioned Places:
+
+The code extracts any capitalized phrase following the word “in,” cleans the extracted place strings, counts how often each appears, and returns the most frequent location phrases.
+
+```{r}
+locs <- nyt |>
+  transmute(
+    Title,
+    loc = str_extract_all(
+      Title,
+      "(?<=\\bin\\s)([A-Z][A-Za-z\\-]+(?:\\s[A-Z][A-Za-z\\-]+)*)"
+    )
+  ) |>
+  unnest(loc) |>
+  mutate(loc = loc |>
+           str_replace_all("\\s+", " ") |>
+           str_trim()) |>
+  count(loc, sort = TRUE) |>
+  slice_head(n = 10)
+```
+
+# ggplot
+
+```{r}
+ggplot(locs, aes(x = reorder(loc, n), y = n)) +
+  geom_col() +
+  coord_flip() +
+  labs(
+    title = "Top 10 Phrases Following 'in' - NYT Headlines",
+    x = "Location phrase",
+    y = "Count"
+  ) +
+  theme_minimal(base_size = 12)
+```
+
+# The questions:
+
+How can the data explored here help us to better understand preexisting theories of propaganda during war times?
+
+Is this data enough to make a claim about over saturation of war in the news?
+
+# Media Control: The Spectacular Achievements of Propaganda (2002)
+
+This book was published one year before the 2003 invasion of Iraq and is a foundational text for understanding modern propaganda.
+
+Main takeaways:
+
+1.  Modern democracies rely on managing public opinion
+2.  The media functions to manufacture public consent
+3.  Propaganda works best when preemptively framing an issue
+4.   The goal is stability; not truth
+
+More generally, Chomsky is claiming propaganda is not just a facet, but the operating system for democracy. And it is essential to the mechanism of war.
+
+# Chomsky on Establishing a Norm
+
+“Imperial Ambition: An Interview with Noam Chomsky.” Monthly Review (2003)
+
+"So if you want to establish a new norm, you have to do something. And the easiest way to do it is to select a completely defenseless target, which can be completely overwhelmed by the most massive military force in human history. However, in order to do that credibly, at least to your own population, you have to frighten them. So the defenseless target has to be turned into an awesome threat to survival which was responsible for September 11 and is about to attack us again, and so on and so forth. And that was indeed done. Beginning last September there was a massive effort which substantially succeeded in convincing Americans, alone in the world, that Saddam Hussein is not only a monster but a threat to their existence. That was the content of the October congressional resolution and a lot of things since. And it shows in the polls. And by now about half the population even believes that he was responsible for September 11.”
+
+# Takeaways:
+
+-   Chomsky discusses using propaganda to sway public opinion as a key element of war
+
+-   when combined with my data findings: there is an implication that while propaganda is made using tone and imagery, it is supported by a backbone of widespread usage in the news, over saturating our information channels with content on the war.
+
+# Sources:
+
+Chomsky, Noam. Media Control: The Spectacular Achievements of Propaganda. 2nd ed. New York: Seven Stories Press, 2002.
+
+Chomsky, Noam. “Imperial Ambition: An Interview with Noam Chomsky.” Monthly Review (originally 2003; reprinted online).
+
+R Core Team. (2020). NYTimes: a sample dataset containing labeled headlines from The New York Times. RTextTools. https://rdrr.io/cran/RTextTools/man/NYTimes.html

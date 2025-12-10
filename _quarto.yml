@@ -20,6 +20,16 @@ website:
           text: "Permutation Testing"
         - href: sql_project.qmd
           text: "Analyzing Policing with SQL"         
+    - text: Research
+      menu: 
+        - href: ISP.qmd
+          text: "Nepal's Regional Schooling"
+        - href: CASA_paper.qmd
+          text: "Quantifying Growth: Warehousing"
+    - text: GIS Mapping
+      menu: 
+        - href: Warehousing_Corona.qmd
+          text: "Warehouses in Corona CA"
     - text: Blog Posts
       menu:
         - href: ethics_blog.qmd
@@ -27,17 +37,9 @@ website:
         - href: surveillance.qmd
           text: "I.C.E. Surveillance Technologies"
         - href: Abu_Muslim.qmd
-          text: "Abu Muslim"
-    - text: GIS Mapping
-      menu: 
-        - href: Warehousing_Corona.qmd
-          text: "Warehouses in Corona CA"
-    - text: Research
-      menu: 
-        - href: ISP.qmd
-          text: "Nepal's Regional Schooling"
-        - href: CASA_paper.qmd
-          text: "Quantifying Growth: Warehousing"
+          text: "Abu Muslim and the Abbasid Revolution"
+        - href: project_6.qmd
+          text: "News Headlines & Propaganda"    
     - text: Photography
       menu: 
         - href: nepal_photos.qmd
@@ -53,7 +55,7 @@ website:
 format:
   html:
     theme:
-      light: minty
+      light: sandstone
       dark: slate
     css: styles.css
     toc: false
