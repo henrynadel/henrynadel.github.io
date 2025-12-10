@@ -36,12 +36,12 @@ website:
       menu: 
         - href: ISP.qmd
           text: "Nepal's Regional Schooling"
-        - href: QM_paper.qmd
+        - href: CASA_paper.qmd
           text: "Quantifying Growth: Warehousing"
     - text: Photography
       menu: 
-        - href: nepal_flics
-          text: "From Nepal"
+        - href: nepal_photos.qmd
+          text: "Nepal 2025"
     right:
     - icon: github
       href: https://github.com/[your-username]/[your-repo]

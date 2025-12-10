@@ -1,0 +1,24 @@
+---
+title: "Nepal Photos"
+format: html
+---
+
+```{r, echo=FALSE, results='asis'}
+# List JPG/JPEG files
+img_files <- list.files(
+  path       = "Website flics",
+  pattern    = "(?i)\\.jpe?g$",
+  full.names = TRUE
+)
+
+img_files <- sort(img_files)
+
+# Print each image with reduced size + extra spacing
+for (img in img_files) {
+  cat(
+    "![](", img, 
+    "){style='display:block; margin: 0 auto 4rem; max-width: 80%; height: auto;'}\n\n",
+    sep = ""
+  )
+}
+```

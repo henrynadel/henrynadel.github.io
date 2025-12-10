@@ -3,6 +3,12 @@ title: "Independent Study Project – Pitzer in Nepal"
 format: html
 ---
 
+The following is the independent study project that I conducted during the final month of my Pitzer in Nepal study abroad program in the spring of 2025. After 4 months based in the capital city Kathmandu learning to speak Nepali, I left to the northern district of Mustang, nestled along the Tibetan boarder. Here I stayed for three weeks doing a work stay at a hostel in the town of Lubrak, getting to know the people around me, and conducting research on the distinctive format for regional schooling in the area. 
+
+This research is not peer reviewed nor academically published. The first half of the paper is necessary background on the state of rural schooling across Nepal, and the second half holds my findings from Lower Mustang.
+
+It was a great joy and honor to have spent the time I did in Mustang; Lubrak ko manche, sabailaai mero man choyo :)
+
 ```{=html}
 <embed src="Henry Nadel ISP - Pitzer in Nepal copy.pdf"
        type="application/pdf"
