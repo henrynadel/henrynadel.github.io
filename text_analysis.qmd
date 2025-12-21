@@ -31,6 +31,7 @@ nyt <- NYTimes |>
 ```
 
 ```{r}
+#| code-fold: true
 titles_tokens <- nyt |>
   transmute(
     Title_clean = Title |>
@@ -49,7 +50,7 @@ top_words <- titles_tokens |>
 ```
 
 ```{r}
-# Plot — Top content words
+#| code-fold: true
 ggplot(top_words, aes(x = reorder(word, n), y = n)) +
   geom_col() +
   coord_flip() +
@@ -72,6 +73,7 @@ in this section I find the locations that are most frequestly refrenced by searc
 The code extracts any capitalized phrase following the word “in,” cleans the extracted place strings, counts how often each appears, and returns the top ten most frequent location phrases.
 
 ```{r}
+#| code-fold: true
 locs <- nyt |>
   transmute(
     Title,
@@ -89,7 +91,7 @@ locs <- nyt |>
 ```
 
 ```{r}
-# Plot 2 — Top phrases following "in "
+#| code-fold: true
 ggplot(locs, aes(x = reorder(loc, n), y = n)) +
   geom_col() +
   coord_flip() +
@@ -113,6 +115,7 @@ Numbers appear in headlines for many reasons: summaries of statistics, reference
 The following code checks whether each headline contains any number and separately extracts four-digit years beginning with 19xx or 20xx. It then calculates the share of headlines containing numbers.
 
 ```{r}
+#| code-fold: true
 title_nums <- nyt |>
   transmute(
     Title,
@@ -129,7 +132,7 @@ prop_table <- tibble(
 ```
 
 ```{r}
-# Table — Share of headlines with numbers / percentages
+#| code-fold: true
 kable(
   prop_table,
   col.names = c("Metric", "Share of headlines"),

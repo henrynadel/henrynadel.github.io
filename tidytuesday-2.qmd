@@ -26,7 +26,7 @@ library(ggplot2)
 ```
 
 ```{r, echo=TRUE}
-# yearly average gasoline price
+#| code-fold: true
 gas_yearly <- weekly_gas_prices |>
   filter(fuel == "gasoline", grade == "all", formulation == "all") |>
   mutate(year = year(date)) |>
@@ -38,11 +38,12 @@ gas_yearly <- weekly_gas_prices |>
 The following is a printed list of the average price of gas in the U.S. from 1993 to 2025.
 
 ```{r}
+#| code-fold: true
 print(gas_yearly, n = Inf)
 ```
 
 ```{r, echo=TRUE}
-# Plot
+#| code-fold: true
 ggplot(gas_yearly, aes(x = year, y = avg_price, group = 1)) +
   geom_line() +
   geom_point() +

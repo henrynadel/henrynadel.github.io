@@ -29,7 +29,7 @@ peaks_tidy <- tuesdata$peaks_tidy
 ```
 
 ```{r, echo=TRUE}
-# joining
+#| code-fold: true
 exped_tidy <- exped_tidy |> mutate(PEAKID = as.character(PEAKID))
 peaks_tidy <- peaks_tidy |> mutate(PEAKID = as.character(PEAKID))
 
@@ -48,7 +48,7 @@ exped_by_region
 ```
 
 ```{r, echo=TRUE}
-# ---- plot ----
+#| code-fold: true
 ggplot(exped_by_region,
        aes(x = forcats::fct_reorder(REGION_FACTOR, n_expeditions),
            y = n_expeditions)) +

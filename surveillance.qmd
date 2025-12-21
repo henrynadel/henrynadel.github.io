@@ -1,5 +1,13 @@
 ---
-title: "surveillance"
+title: "ICE's New Surveillance Technology"
 format: html
 ---
 
+The following is the final paper for a class I took in the fall of 2025, Surveillance in the Media. We were tasked with writing a ~3000 word research paper on a modern surveillance technology contextualized using scholarship including and expanding upon course readings. From there, we were asked to consolidate our research into a shorter format, specifically catered to the goal of communication our findings to a public audience. This second iteration is displayed below, including the citation list for the full research paper. 
+
+
+```{=html}
+<embed src="HN Book Chapter - final draft copy.pdf"
+       type="application/pdf"
+       width="100%"
+       height="900px" />
