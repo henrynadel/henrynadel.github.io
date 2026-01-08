@@ -6,8 +6,14 @@ website:
   title: "Henry Nadel"
   navbar:
     left:
-    - href: index.qmd
-      text: "Home"
+    - text: Research
+      menu: 
+        - href: CASA_paper.qmd
+          text: "Quantifying Growth: Warehousing in the IE"
+        - href: surveillance.qmd
+          text: "I.C.E. Surveillance Technologies"
+        - href: ISP.qmd
+          text: "Nepal's Regional Schooling"
     - text: Data Viz
       menu:
         - href: tidytuesday-1.qmd
@@ -22,18 +28,6 @@ website:
       menu: 
         - href: Warehousing_Corona.qmd
           text: "Warehouses in Corona CA"
-    - text: Written Work
-      menu:
-        - href: surveillance.qmd
-          text: "I.C.E. Surveillance Technologies"
-        - href: Abu_Muslim.qmd
-          text: "Abu Muslim and the Abbasid Revolution"
-    - text: Research
-      menu: 
-        - href: ISP.qmd
-          text: "Nepal's Regional Schooling"
-        - href: CASA_paper.qmd
-          text: "Quantifying Growth: Warehousing"
     - text: Photography
       menu: 
         - href: nepal_photos.qmd
@@ -43,14 +37,12 @@ website:
       href: https://github.com/[your-username]/[your-repo]
       aria-label: GitHub
   page-footer:
-    center: "© Henry Nadel, 2025 · Built with Quarto"
-
+    center: "© Henry Nadel, 2025 · Built with Quarto<br>Contact: nadelhenry@gmail.com"
   
 format:
   html:
     theme:
       light: minty
-      dark: minty
     css: styles.css
     toc: false
     page-layout: full
